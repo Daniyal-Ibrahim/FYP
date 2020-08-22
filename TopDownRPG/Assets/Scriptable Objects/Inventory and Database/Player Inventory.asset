@@ -1,0 +1,305 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67c42b8607255a4c9f383ad58ac6dd1, type: 3}
+  m_Name: Player Inventory
+  m_EditorClassIdentifier: 
+  Container:
+    Items:
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+      amount: 0
+      name: 
+  database: {fileID: 11400000, guid: f324c7e79fef4a34ba4ea78066aacce8, type: 2}
