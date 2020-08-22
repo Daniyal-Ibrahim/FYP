@@ -18,7 +18,7 @@ public class Player_Input : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext context)
     {
         inputVector = context.ReadValue<Vector2>();
-        Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
+        //Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
     }
 
     private void Update()
@@ -35,13 +35,14 @@ public class Player_Input : MonoBehaviour
             Debug.Log("Get a mouse");
             return;
         }
-
+        
         Ray ray = Camera.main.ScreenPointToRay(mouse.position.ReadValue());
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit , range))
         {
+            //Debug.Log("Ray casted");
             Vector3 direction = hit.point - transform.position;
-            Quaternion Qdirection = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            Quaternion Qdirection = (Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)));
             rb.MoveRotation(Qdirection);
         }
         if (inputVector.y < 0)
@@ -55,12 +56,12 @@ public class Player_Input : MonoBehaviour
 
         if (inputVector.x == 1)
         {
-            Debug.Log("strafe right");
+            //Debug.Log("strafe right");
             rb.velocity = transform.right * inputVector.x * (Move_Speed / 2);
         }
         else if (inputVector.x == -1)
         {
-            Debug.Log("Strafe left");
+            //Debug.Log("Strafe left");
             rb.velocity = (transform.right ) * inputVector.x * (Move_Speed / 2);
         }
 
