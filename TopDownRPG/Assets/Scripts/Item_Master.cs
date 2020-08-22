@@ -21,6 +21,8 @@ public enum ItemType
 
 public enum Property
 {
+    ID,
+
     Attack,
     Defence,
 

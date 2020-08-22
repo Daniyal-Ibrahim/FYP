@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Inventroy_Manager : MonoBehaviour
 {
-
     public Inventory_Master inventory;
     public Inventory_Master equiptment;
 
@@ -16,7 +15,6 @@ public class Inventroy_Manager : MonoBehaviour
             inventory.AddItem(new Item(item_PickUp.pickUp), item_PickUp.amount);
             Destroy(other.gameObject);
         }
-
     }
 
     private void OnApplicationQuit()
