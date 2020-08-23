@@ -15,6 +15,7 @@ public class Player_Input : MonoBehaviour
     private float range = 100f;
     // Animations
     public Animator animator;
+    public float f = 0f;
     // UI
     public GameObject Inventroy;
     public GameObject Equiptment;
@@ -51,21 +52,20 @@ public class Player_Input : MonoBehaviour
     }
     public void Attack(InputAction.CallbackContext context)
     {
-
-        Debug.Log("Attacking" + context.ReadValue<float>());
+        f = context.ReadValue<float>();
         animator.SetFloat("Attack", context.ReadValue<float>());
-
     }
 
     private void Update()
     {
+        // Animation Based Movement
         PlayerAnimation();
     }
 
     private void FixedUpdate()
     {
         // physics based movement
-        PlayerMovement();
+        //PlayerMovement();
         // physics based rotation
         PlayerRoation();
     }
@@ -112,8 +112,8 @@ public class Player_Input : MonoBehaviour
     }
     private void PlayerAnimation()
     {
-        animator.SetFloat("Vertical", inputVector.x);
-        animator.SetFloat("Horizontal", inputVector.y);
-        //animator.SetFloat("Attack", f);
+        animator.SetFloat("Vertical", inputVector.y);
+        animator.SetFloat("Horizontal", inputVector.x);
+        animator.SetFloat("Attack", f);
     }
 }

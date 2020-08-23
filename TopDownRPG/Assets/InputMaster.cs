@@ -55,7 +55,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""fd6f1f4a-7acd-4d37-a15f-bcf82059de55"",
-                    ""path"": ""2DVector(mode=2)"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -110,7 +110,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""ARROW"",
                     ""id"": ""4961c518-f476-4d36-ba4f-0f49fc48eb58"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -121,7 +121,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""3c25a2b0-6a6c-4d17-aa7f-3fdcb49a52fd"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -132,7 +132,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""44d274b4-6be0-4853-9609-338e4f3e2533"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -143,7 +143,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""cd6432ff-4f32-4dab-9795-8acfb6a9be27"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -154,7 +154,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""e0834e1b-1abf-466c-bce4-d9652b1f5d00"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -187,8 +187,19 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d9bc6d6c-7ba0-4034-bee0-00ca24b8a93d"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79c3a64e-2b96-4931-94b2-f4c392a4cbbc"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
