@@ -17,34 +17,34 @@ public class Player_Input : MonoBehaviour
     public Animator animator;
     public float f = 0f;
     // UI
-    public GameObject Inventroy;
-    public GameObject Equiptment;
-    public bool Active = false;
+    //public GameObject Inventroy;
+    //public GameObject Equiptment;
+    //public bool Active = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void Inventory(InputAction.CallbackContext context)
-    {
-        if (Inventroy.activeInHierarchy == false && Equiptment.activeInHierarchy == false)
-            Active = false;
+    //public void Inventory(InputAction.CallbackContext context)
+    //{
+    //    if (Inventroy.activeInHierarchy == false && Equiptment.activeInHierarchy == false)
+    //        Active = false;
 
-        if (Active)
-        {
-            Inventroy.gameObject.SetActive(false);
-            Equiptment.gameObject.SetActive(false);
-            Active = false;
-        }
-        else
-        {
-            Inventroy.gameObject.SetActive(true);
-            Equiptment.gameObject.SetActive(true);
-            Active = true;
-        }
-        Debug.Log("Input");
-    }
+    //    if (Active)
+    //    {
+    //        Inventroy.gameObject.SetActive(false);
+    //        Equiptment.gameObject.SetActive(false);
+    //        Active = false;
+    //    }
+    //    else
+    //    {
+    //        Inventroy.gameObject.SetActive(true);
+    //        Equiptment.gameObject.SetActive(true);
+    //        Active = true;
+    //    }
+    //    Debug.Log("Input");
+    //}
     public void Movement(InputAction.CallbackContext context)
     {
         inputVector = context.ReadValue<Vector2>();
