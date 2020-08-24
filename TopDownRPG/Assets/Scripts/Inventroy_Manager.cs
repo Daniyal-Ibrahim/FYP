@@ -13,22 +13,25 @@ public class Inventroy_Manager : MonoBehaviour
 
     public void Inventory(InputAction.CallbackContext context)
     {
-        if (inv.activeInHierarchy == false && equ.activeInHierarchy == false)
-            Active = false;
+        if (context.performed)
+        {
+            if (inv.activeInHierarchy == false && equ.activeInHierarchy == false)
+                Active = false;
 
-        if (Active)
-        {
-            inv.gameObject.SetActive(false);
-            equ.gameObject.SetActive(false);
-            Active = false;
+            if (Active)
+            {
+                inv.gameObject.SetActive(false);
+                equ.gameObject.SetActive(false);
+                Active = false;
+            }
+            else
+            {
+                inv.gameObject.SetActive(true);
+                equ.gameObject.SetActive(true);
+                Active = true;
+            }
+            //Debug.Log("Input");
         }
-        else
-        {
-            inv.gameObject.SetActive(true);
-            equ.gameObject.SetActive(true);
-            Active = true;
-        }
-        Debug.Log("Input");
     }
 
     public void OnTriggerEnter(Collider other)

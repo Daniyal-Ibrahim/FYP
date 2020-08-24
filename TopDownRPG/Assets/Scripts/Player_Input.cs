@@ -16,6 +16,8 @@ public class Player_Input : MonoBehaviour
     // Animations
     public Animator animator;
     public float f = 0f;
+    public float attack_Delay = 1f;
+    float nextattack = 0f;
     // UI
     //public GameObject Inventroy;
     //public GameObject Equiptment;
@@ -52,8 +54,23 @@ public class Player_Input : MonoBehaviour
     }
     public void Attack(InputAction.CallbackContext context)
     {
-        f = context.ReadValue<float>();
-        animator.SetFloat("Attack", context.ReadValue<float>());
+
+        if (context.started == true && Time.time >= nextattack)
+        {
+            //Debug.Log("Performed: " + context.performed.ToString());
+            animator.SetBool("Attacking", true);
+            //f = context.ReadValue<float>();
+            animator.SetFloat("Attack", context.ReadValue<float>());
+            nextattack = Time.time + 1f / attack_Delay;
+        }
+
+        if (context.canceled == true)
+        {
+            //Debug.Log("Cancles: " + context.canceled.ToString());
+            animator.SetFloat("Attack", context.ReadValue<float>());
+            animator.SetBool("Attacking", false);
+        }
+        //Debug.Log(context.ReadValue<float>());
     }
 
     private void Update()
@@ -114,6 +131,6 @@ public class Player_Input : MonoBehaviour
     {
         animator.SetFloat("Vertical", inputVector.y);
         animator.SetFloat("Horizontal", inputVector.x);
-        animator.SetFloat("Attack", f);
+        
     }
 }
