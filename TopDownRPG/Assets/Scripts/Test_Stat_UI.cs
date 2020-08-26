@@ -20,7 +20,7 @@ public class Test_Stat_UI : MonoBehaviour
     }
     public void UpgradeHealth(int value)
     {
-        hp.sizeDelta = new Vector2(hp.sizeDelta.x + value, 20);
+        hp.sizeDelta = new Vector2(hp.sizeDelta.x + value, hp.sizeDelta.y);
         SetMaxHealth((int)(hp.sizeDelta.x + value));
     }
     public void AddHealth(int value)
@@ -43,7 +43,7 @@ public class Test_Stat_UI : MonoBehaviour
 
     public void UpgradeMana(int value)
     {
-        mp.sizeDelta = new Vector2(mp.sizeDelta.x + value, 20);
+        mp.sizeDelta = new Vector2(mp.sizeDelta.x + value, mp.sizeDelta.y);
         SetMaxMana((int)(mp.sizeDelta.x + value));
     }
     public void AddMana(int value)
@@ -66,7 +66,7 @@ public class Test_Stat_UI : MonoBehaviour
 
     public void UpgradeStamina(int value)
     {
-        sp.sizeDelta = new Vector2(sp.sizeDelta.x + value, 20);
+        sp.sizeDelta = new Vector2(sp.sizeDelta.x + value, sp.sizeDelta.y);
         SetMaxStamina((int)(sp.sizeDelta.x + value));
     }
     public void AddStamina(int value)

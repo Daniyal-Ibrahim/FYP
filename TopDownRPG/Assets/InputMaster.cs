@@ -27,6 +27,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7fb679a-92cb-43fc-ab39-0173653a8024"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""48e5f0e9-a28d-42bb-b4e4-f46ce5251d68"",
@@ -43,9 +51,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""Primary_Attack"",
                     ""type"": ""Button"",
                     ""id"": ""b56fbcd2-ecbe-4122-884e-9a043eab1ed8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Secondary_Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""6fcf5173-5823-4162-b707-ec99a1b40464"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -166,7 +182,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""868f50a5-a419-49b0-957f-8a695563cc40"",
                     ""path"": ""<Keyboard>/i"",
-                    ""interactions"": ""Press(behavior=1)"",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Inventory"",
@@ -188,21 +204,54 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""d9bc6d6c-7ba0-4034-bee0-00ca24b8a93d"",
                     ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Primary_Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""79c3a64e-2b96-4931-94b2-f4c392a4cbbc"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""id"": ""6973f7e6-afc2-4904-bddc-ae50b78d1854"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Primary_Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56dcaf19-4a02-4714-b7d7-cb506e7ec521"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3759847f-3373-49c4-8ca6-b5fcf9e5d08e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary_Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c66d83bd-0433-470f-b484-c4f6c3685d63"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary_Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -241,9 +290,11 @@ public class @InputMaster : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Primary_Attack = m_Player.FindAction("Primary_Attack", throwIfNotFound: true);
+        m_Player_Secondary_Attack = m_Player.FindAction("Secondary_Attack", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -297,17 +348,21 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Primary_Attack;
+    private readonly InputAction m_Player_Secondary_Attack;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
         public PlayerActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Primary_Attack => m_Wrapper.m_Player_Primary_Attack;
+        public InputAction @Secondary_Attack => m_Wrapper.m_Player_Secondary_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -320,15 +375,21 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Primary_Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimary_Attack;
+                @Primary_Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimary_Attack;
+                @Primary_Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimary_Attack;
+                @Secondary_Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
+                @Secondary_Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
+                @Secondary_Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -336,15 +397,21 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
+                @Primary_Attack.started += instance.OnPrimary_Attack;
+                @Primary_Attack.performed += instance.OnPrimary_Attack;
+                @Primary_Attack.canceled += instance.OnPrimary_Attack;
+                @Secondary_Attack.started += instance.OnSecondary_Attack;
+                @Secondary_Attack.performed += instance.OnSecondary_Attack;
+                @Secondary_Attack.canceled += instance.OnSecondary_Attack;
             }
         }
     }
@@ -385,9 +452,11 @@ public class @InputMaster : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnPrimary_Attack(InputAction.CallbackContext context);
+        void OnSecondary_Attack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

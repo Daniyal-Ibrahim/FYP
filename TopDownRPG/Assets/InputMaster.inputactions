@@ -14,6 +14,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "e7fb679a-92cb-43fc-ab39-0173653a8024",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "48e5f0e9-a28d-42bb-b4e4-f46ce5251d68",
@@ -30,9 +38,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Attack",
+                    "name": "Primary_Attack",
                     "type": "Button",
                     "id": "b56fbcd2-ecbe-4122-884e-9a043eab1ed8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Secondary_Attack",
+                    "type": "Button",
+                    "id": "6fcf5173-5823-4162-b707-ec99a1b40464",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -153,7 +169,7 @@
                     "name": "",
                     "id": "868f50a5-a419-49b0-957f-8a695563cc40",
                     "path": "<Keyboard>/i",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
                     "action": "Inventory",
@@ -175,21 +191,54 @@
                     "name": "",
                     "id": "d9bc6d6c-7ba0-4034-bee0-00ca24b8a93d",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Primary_Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "79c3a64e-2b96-4931-94b2-f4c392a4cbbc",
-                    "path": "<Keyboard>/q",
-                    "interactions": "Press(behavior=2)",
+                    "id": "6973f7e6-afc2-4904-bddc-ae50b78d1854",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Primary_Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56dcaf19-4a02-4714-b7d7-cb506e7ec521",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3759847f-3373-49c4-8ca6-b5fcf9e5d08e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Secondary_Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c66d83bd-0433-470f-b484-c4f6c3685d63",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Secondary_Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
