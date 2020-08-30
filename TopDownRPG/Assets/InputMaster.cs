@@ -65,6 +65,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Secondary_Attack1"",
+                    ""type"": ""Button"",
+                    ""id"": ""99d6e01e-59a0-4c98-86eb-b6173e8c0385"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -254,6 +262,28 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Secondary_Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db3b9677-21eb-4541-91f2-72ac26e25355"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary_Attack1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ac075c9-9cf5-4d00-87e2-d15bef5dfe01"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Secondary_Attack1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -295,6 +325,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Primary_Attack = m_Player.FindAction("Primary_Attack", throwIfNotFound: true);
         m_Player_Secondary_Attack = m_Player.FindAction("Secondary_Attack", throwIfNotFound: true);
+        m_Player_Secondary_Attack1 = m_Player.FindAction("Secondary_Attack1", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -353,6 +384,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Primary_Attack;
     private readonly InputAction m_Player_Secondary_Attack;
+    private readonly InputAction m_Player_Secondary_Attack1;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -363,6 +395,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Primary_Attack => m_Wrapper.m_Player_Primary_Attack;
         public InputAction @Secondary_Attack => m_Wrapper.m_Player_Secondary_Attack;
+        public InputAction @Secondary_Attack1 => m_Wrapper.m_Player_Secondary_Attack1;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -390,6 +423,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Secondary_Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
                 @Secondary_Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
                 @Secondary_Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
+                @Secondary_Attack1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack1;
+                @Secondary_Attack1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack1;
+                @Secondary_Attack1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack1;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -412,6 +448,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Secondary_Attack.started += instance.OnSecondary_Attack;
                 @Secondary_Attack.performed += instance.OnSecondary_Attack;
                 @Secondary_Attack.canceled += instance.OnSecondary_Attack;
+                @Secondary_Attack1.started += instance.OnSecondary_Attack1;
+                @Secondary_Attack1.performed += instance.OnSecondary_Attack1;
+                @Secondary_Attack1.canceled += instance.OnSecondary_Attack1;
             }
         }
     }
@@ -457,6 +496,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnPrimary_Attack(InputAction.CallbackContext context);
         void OnSecondary_Attack(InputAction.CallbackContext context);
+        void OnSecondary_Attack1(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

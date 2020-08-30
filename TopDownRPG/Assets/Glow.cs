@@ -17,6 +17,6 @@ public class Glow : MonoBehaviour
 
     public void Update()
     {
-        lightSource.intensity = Mathf.Lerp(minRange, maxRange, Mathf.PingPong(Time.time, flickerSpeed));
+        lightSource.intensity = Mathf.Lerp(minRange, maxRange, Mathf.PingPong(Time.deltaTime, flickerSpeed));
     }
 }

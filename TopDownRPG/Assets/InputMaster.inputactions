@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Secondary_Attack1",
+                    "type": "Button",
+                    "id": "99d6e01e-59a0-4c98-86eb-b6173e8c0385",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -239,6 +247,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Secondary_Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db3b9677-21eb-4541-91f2-72ac26e25355",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Secondary_Attack1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ac075c9-9cf5-4d00-87e2-d15bef5dfe01",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Secondary_Attack1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

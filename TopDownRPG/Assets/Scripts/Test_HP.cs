@@ -6,6 +6,7 @@ public class Test_HP : MonoBehaviour
 {
     public int maxHealth;
     public int curHealth;
+    public Animator animator;
     // Update is called once per frame
 
     private void Awake()
@@ -23,12 +24,17 @@ public class Test_HP : MonoBehaviour
         }
         else
         {
+            animator.SetTrigger("Hit");
             Debug.Log("Damaged");
         }
     }
     public void Death()
     {
         Debug.Log("Dead");
-        Destroy(this.gameObject);
+        animator.SetTrigger("Death");
+        //Destroy(this.gameObject);
+        Destroy(animator, 2);
     }
+
+
 }
