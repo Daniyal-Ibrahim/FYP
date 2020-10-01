@@ -20,7 +20,7 @@ public class Player_Input : MonoBehaviour
     private bool Cast_Start = false;
     private bool Cast_Loop = false;
     private bool Cast_End = false;
-    float nextinput = 0f;
+    public float nextinput = 0f;
     // UI
     //public GameObject Inventroy;
     //public GameObject Equiptment;
@@ -92,7 +92,7 @@ public class Player_Input : MonoBehaviour
         //Print the time of when the function is first called.
         //Debug.Log("Started Coroutine at timestamp : " + Time.time);
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.3f);
         if (context.performed == true)
             animator.SetBool("Start", true);
         //After we have waited 5 seconds print the time again.
@@ -103,10 +103,12 @@ public class Player_Input : MonoBehaviour
     {
         //Print the time of when the function is first called.
         //Debug.Log("Started Coroutine at timestamp : " + Time.time);
-        //yield on a new YieldInstruction that waits for 5 seconds.
+        //yield on a new YieldInstruction that waits for x seconds.
         if (combo == 3)
         {
-            resert_delay -= resert_delay;
+            combo = 0;
+            resert_delay = 0;
+            animator.SetTrigger("Reset");
         }
         yield return new WaitForSecondsRealtime(resert_delay);
         if (context.performed != true)
@@ -115,7 +117,7 @@ public class Player_Input : MonoBehaviour
             resert_delay = 0;
             animator.SetTrigger("Reset");
         }
-        //After we have waited 5 seconds print the time again.
+        //After we have waited x seconds print the time again.
         //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 
@@ -128,7 +130,14 @@ public class Player_Input : MonoBehaviour
             Debug.Log("Combo :" + combo);
             animator.SetTrigger(Trigger_list[combo]);
             combo++;
-            resert_delay += 1f;
+            resert_delay = .5f;
+
+            StartCoroutine(Delay());
+            IEnumerator Delay()
+            {
+                yield return new WaitForSecondsRealtime(resert_delay/2);
+                animator.SetTrigger("Reset");
+            }
 
         }
         if (context.canceled == true)

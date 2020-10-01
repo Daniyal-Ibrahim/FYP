@@ -21,9 +21,6 @@ public class AI_Follow : MonoBehaviour
 
     void Update()
     {
-
-
-
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= range)
         {

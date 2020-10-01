@@ -18,9 +18,9 @@ TagManager:
   - Ground
   - Postprocessing
   - Inventory
-  - 
-  - 
-  - 
+  - Target
+  - Obsticle
+  - Player
   - 
   - 
   - 
