@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/3rd party/SpeedTutor_Full_Menu_System/Scenes/MainMenu.unity
+    guid: e84c9862265a1104a9d724503d4111aa
+  - enabled: 1
     path: Assets/Scenes/Dev Room.unity
     guid: 241dd742daa967d4cbf26c1fe42c8b87
   m_configObjects:

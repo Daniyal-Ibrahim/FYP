@@ -22,17 +22,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Inventory",
+                    "name": "Test",
                     "type": "Button",
-                    "id": "48e5f0e9-a28d-42bb-b4e4-f46ce5251d68",
+                    "id": "d020c0f9-e21a-41fd-acea-413a3fc73ba2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "Interact",
+                    "name": "Inventory",
                     "type": "Button",
-                    "id": "28080a85-ab57-4b6e-87ca-81ca22f1118f",
+                    "id": "48e5f0e9-a28d-42bb-b4e4-f46ce5251d68",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -54,9 +54,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Secondary_Attack1",
+                    "name": "Menu",
                     "type": "Button",
-                    "id": "99d6e01e-59a0-4c98-86eb-b6173e8c0385",
+                    "id": "779d640e-a856-4f9c-bd2c-54994a79348c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -186,39 +186,6 @@
                 },
                 {
                     "name": "",
-                    "id": "49d3701f-6074-425e-90f9-7bfd98938731",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d9bc6d6c-7ba0-4034-bee0-00ca24b8a93d",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Primary_Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6973f7e6-afc2-4904-bddc-ae50b78d1854",
-                    "path": "<Keyboard>/e",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Primary_Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "56dcaf19-4a02-4714-b7d7-cb506e7ec521",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -231,7 +198,7 @@
                 {
                     "name": "",
                     "id": "3759847f-3373-49c4-8ca6-b5fcf9e5d08e",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/q",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -241,61 +208,34 @@
                 },
                 {
                     "name": "",
-                    "id": "c66d83bd-0433-470f-b484-c4f6c3685d63",
-                    "path": "<Keyboard>/q",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Secondary_Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "db3b9677-21eb-4541-91f2-72ac26e25355",
-                    "path": "<Mouse>/leftButton",
+                    "id": "d9bc6d6c-7ba0-4034-bee0-00ca24b8a93d",
+                    "path": "<Keyboard>/e",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Secondary_Attack1",
+                    "action": "Primary_Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3ac075c9-9cf5-4d00-87e2-d15bef5dfe01",
-                    "path": "<Keyboard>/q",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Secondary_Attack1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "f0a8ce6a-f18b-4799-a6ee-7929aa81b604",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "17ed5dd9-2313-4b5d-bf03-c74401414d98",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "0bcb7c2d-1c3e-48ea-8ff6-dcee8301a244",
-                    "path": "",
+                    "id": "56ccdbdb-d132-4b39-b1dc-596bd3fbd92f",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Test",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da3d46b9-fef5-428e-a689-68ded1a31221",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

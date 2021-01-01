@@ -20,6 +20,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -28,6 +29,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -36,6 +38,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -44,6 +47,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -52,6 +56,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -60,6 +65,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -68,6 +74,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -76,6 +83,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -84,6 +92,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -92,6 +101,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -100,6 +110,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -108,6 +119,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -116,6 +128,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -124,6 +137,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -132,6 +146,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -140,6 +155,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -148,6 +164,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -156,6 +173,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -164,6 +182,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -172,6 +191,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -180,6 +200,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -188,6 +209,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -196,6 +218,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -204,6 +227,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -212,6 +236,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -220,6 +245,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -228,6 +254,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -236,6 +263,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -244,6 +272,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -252,6 +281,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -260,6 +290,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -268,6 +299,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -276,6 +308,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -284,6 +317,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -292,6 +326,7 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
     - Allowed: 
@@ -300,6 +335,8 @@ MonoBehaviour:
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
       amount: 0
       name: 
   database: {fileID: 11400000, guid: f324c7e79fef4a34ba4ea78066aacce8, type: 2}
+  SpawnPoint: {fileID: 0}

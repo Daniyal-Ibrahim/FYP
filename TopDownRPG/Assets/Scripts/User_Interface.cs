@@ -12,6 +12,7 @@ public abstract class User_Interface : MonoBehaviour
     public GameObject MasterCanvas;
     public Inventroy_Manager manager;
     public Inventory_Master inventory;
+    public GameObject SpawnPoint;
     Mouse mouse = Mouse.current;
 
 
@@ -103,8 +104,8 @@ public abstract class User_Interface : MonoBehaviour
         if (MouseData.currentInterface == null)
         {
             //destroy item
-            //interfaceSlot[obj].RemoveItem();
-            Debug.Log("item spawn/destroy");
+            interfaceSlot[obj].RemoveItem();
+            //Debug.Log("item spawn/destroy");
             return;
         }
 
@@ -113,7 +114,10 @@ public abstract class User_Interface : MonoBehaviour
            // Debug.Log("item swap");
             InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
             inventory.SwapItem(interfaceSlot[obj], currentSlotData);
+            manager.Equip();
         }
+
+        // create equip function
 
     }
 

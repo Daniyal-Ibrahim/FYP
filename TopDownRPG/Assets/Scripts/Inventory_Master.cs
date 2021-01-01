@@ -9,6 +9,7 @@ public class Inventory_Master : ScriptableObject
 {
     public Inventory Container;
     public Item_Database database;
+    public GameObject SpawnPoint;
 
     public bool AddItem(Item item, int amount)
     {
@@ -71,7 +72,7 @@ public class Inventory_Master : ScriptableObject
         Debug.Log("item swap function called");
         if (Swap2.Placeable(Swap1.Item_Master) && Swap1.Placeable(Swap2.Item_Master))
         {
-            Debug.Log("item swap working");
+            //Debug.Log("item swap working");
             InvetorySlot temp = new InvetorySlot(Swap2.item, Swap2.amount);
             Swap2.UpdateSlot(Swap1.item, Swap1.amount);
             Swap1.UpdateSlot(temp.item, temp.amount);
@@ -143,6 +144,9 @@ public class InvetorySlot
 
     public void RemoveItem()
     {
+        GameObject player = GameObject.Find("Spawn_Point");
+        //non stackable objects
+        GameObject.Instantiate(item.prefab, player.transform.position, player.transform.rotation);
         item = new Item();
         amount = 0;
     }

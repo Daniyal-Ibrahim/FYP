@@ -35,17 +35,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Inventory"",
+                    ""name"": ""Test"",
                     ""type"": ""Button"",
-                    ""id"": ""48e5f0e9-a28d-42bb-b4e4-f46ce5251d68"",
+                    ""id"": ""d020c0f9-e21a-41fd-acea-413a3fc73ba2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""Inventory"",
                     ""type"": ""Button"",
-                    ""id"": ""28080a85-ab57-4b6e-87ca-81ca22f1118f"",
+                    ""id"": ""48e5f0e9-a28d-42bb-b4e4-f46ce5251d68"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -67,9 +67,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Secondary_Attack1"",
+                    ""name"": ""Menu"",
                     ""type"": ""Button"",
-                    ""id"": ""99d6e01e-59a0-4c98-86eb-b6173e8c0385"",
+                    ""id"": ""779d640e-a856-4f9c-bd2c-54994a79348c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -199,39 +199,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""49d3701f-6074-425e-90f9-7bfd98938731"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d9bc6d6c-7ba0-4034-bee0-00ca24b8a93d"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Primary_Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6973f7e6-afc2-4904-bddc-ae50b78d1854"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Primary_Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""56dcaf19-4a02-4714-b7d7-cb506e7ec521"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
@@ -244,7 +211,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3759847f-3373-49c4-8ca6-b5fcf9e5d08e"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -254,61 +221,34 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c66d83bd-0433-470f-b484-c4f6c3685d63"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Secondary_Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""db3b9677-21eb-4541-91f2-72ac26e25355"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""d9bc6d6c-7ba0-4034-bee0-00ca24b8a93d"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Secondary_Attack1"",
+                    ""action"": ""Primary_Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3ac075c9-9cf5-4d00-87e2-d15bef5dfe01"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Secondary_Attack1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""UI"",
-            ""id"": ""f0a8ce6a-f18b-4799-a6ee-7929aa81b604"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""17ed5dd9-2313-4b5d-bf03-c74401414d98"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""0bcb7c2d-1c3e-48ea-8ff6-dcee8301a244"",
-                    ""path"": """",
+                    ""id"": ""56ccdbdb-d132-4b39-b1dc-596bd3fbd92f"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Test"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da3d46b9-fef5-428e-a689-68ded1a31221"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -321,14 +261,11 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Primary_Attack = m_Player.FindAction("Primary_Attack", throwIfNotFound: true);
         m_Player_Secondary_Attack = m_Player.FindAction("Secondary_Attack", throwIfNotFound: true);
-        m_Player_Secondary_Attack1 = m_Player.FindAction("Secondary_Attack1", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
+        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -380,22 +317,22 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Test;
     private readonly InputAction m_Player_Inventory;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Primary_Attack;
     private readonly InputAction m_Player_Secondary_Attack;
-    private readonly InputAction m_Player_Secondary_Attack1;
+    private readonly InputAction m_Player_Menu;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
         public PlayerActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @Test => m_Wrapper.m_Player_Test;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Primary_Attack => m_Wrapper.m_Player_Primary_Attack;
         public InputAction @Secondary_Attack => m_Wrapper.m_Player_Secondary_Attack;
-        public InputAction @Secondary_Attack1 => m_Wrapper.m_Player_Secondary_Attack1;
+        public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -411,21 +348,21 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Test.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTest;
+                @Test.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTest;
+                @Test.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTest;
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
-                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Primary_Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimary_Attack;
                 @Primary_Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimary_Attack;
                 @Primary_Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimary_Attack;
                 @Secondary_Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
                 @Secondary_Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
                 @Secondary_Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
-                @Secondary_Attack1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack1;
-                @Secondary_Attack1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack1;
-                @Secondary_Attack1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack1;
+                @Menu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -436,70 +373,33 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @Test.started += instance.OnTest;
+                @Test.performed += instance.OnTest;
+                @Test.canceled += instance.OnTest;
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
                 @Primary_Attack.started += instance.OnPrimary_Attack;
                 @Primary_Attack.performed += instance.OnPrimary_Attack;
                 @Primary_Attack.canceled += instance.OnPrimary_Attack;
                 @Secondary_Attack.started += instance.OnSecondary_Attack;
                 @Secondary_Attack.performed += instance.OnSecondary_Attack;
                 @Secondary_Attack.canceled += instance.OnSecondary_Attack;
-                @Secondary_Attack1.started += instance.OnSecondary_Attack1;
-                @Secondary_Attack1.performed += instance.OnSecondary_Attack1;
-                @Secondary_Attack1.canceled += instance.OnSecondary_Attack1;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // UI
-    private readonly InputActionMap m_UI;
-    private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Newaction;
-    public struct UIActions
-    {
-        private @InputMaster m_Wrapper;
-        public UIActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_UI_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void SetCallbacks(IUIActions instance)
-        {
-            if (m_Wrapper.m_UIActionsCallbackInterface != null)
-            {
-                @Newaction.started -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnNewaction;
-            }
-            m_Wrapper.m_UIActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-            }
-        }
-    }
-    public UIActions @UI => new UIActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnTest(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
         void OnPrimary_Attack(InputAction.CallbackContext context);
         void OnSecondary_Attack(InputAction.CallbackContext context);
-        void OnSecondary_Attack1(InputAction.CallbackContext context);
-    }
-    public interface IUIActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

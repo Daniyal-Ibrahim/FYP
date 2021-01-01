@@ -9,7 +9,7 @@ public class Player_Input : MonoBehaviour
 
     // Input Controls
     public InputMaster controls;
-    // Movemen
+    // Movement
     [SerializeField] float Move_Speed = 10f;
     private Vector2 inputVector = new Vector2(0, 0);
     private Rigidbody rb;
@@ -25,13 +25,14 @@ public class Player_Input : MonoBehaviour
     //public GameObject Inventroy;
     //public GameObject Equiptment;
     //public bool Active = false;
-
-    public int combo = 0;
-    public float reset; // if we should reset 
-    public float reset_time; // time before resert is triggred
-    public float resert_delay; // delay between reserts 
+    // Attack
+    private int combo = 0;
+    private float reset; // if we should reset 
+    private float reset_time; // time before resert is triggred
+    private float resert_delay; // delay between reserts 
     List<string> Trigger_list = new List<string>(new string[] { "Trigger 1", "Trigger 2", "Trigger 3" });
-
+    // Item pickup
+    public bool pickup = false;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -63,7 +64,7 @@ public class Player_Input : MonoBehaviour
     public void Movement(InputAction.CallbackContext context)
     {
         inputVector = context.ReadValue<Vector2>();
-        Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
+        //Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
     }
     public void Sprint(InputAction.CallbackContext context)
     {
@@ -121,6 +122,15 @@ public class Player_Input : MonoBehaviour
         //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 
+    public void Test(InputAction.CallbackContext context)
+    {
+        if (context.performed == true)
+            animator.SetBool("Pickup", true);
+
+        if (context.canceled == true)
+            animator.SetBool("Pickup", false);
+
+    }
     public void Primary_Attack(InputAction.CallbackContext context)
     {
 
@@ -130,7 +140,7 @@ public class Player_Input : MonoBehaviour
             Debug.Log("Combo :" + combo);
             animator.SetTrigger(Trigger_list[combo]);
             combo++;
-            resert_delay = .5f;
+            resert_delay = 1.5f;
 
             StartCoroutine(Delay());
             IEnumerator Delay()
@@ -197,7 +207,6 @@ public class Player_Input : MonoBehaviour
         //Debug.Log("Completed: " + context.canceled.ToString() + "  iteration :" + f);
         //f++;
     }
-
     public void Secondary_Attack(InputAction.CallbackContext context)
     {
         if (animator.GetBool("Can Cast") == true)

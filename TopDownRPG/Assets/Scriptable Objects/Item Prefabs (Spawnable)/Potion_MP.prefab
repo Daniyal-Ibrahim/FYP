@@ -51,7 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85324632f08f2d5469c1f914b9d51061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUp: {fileID: 11400000, guid: 41c99175399cabe488353d9205ae6736, type: 2}
+  pickUp: {fileID: 11400000, guid: 8482f76f9ec68024faf04096bdb79055, type: 2}
+  amount: 5
 --- !u!65 &8752499117786688950
 BoxCollider:
   m_ObjectHideFlags: 0

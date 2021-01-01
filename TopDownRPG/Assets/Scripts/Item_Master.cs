@@ -38,6 +38,7 @@ public abstract class Item_Master : ScriptableObject
     [TextArea(15, 20)]
     public string description;
     public bool Stackable;
+    public GameObject prefab;
     public Item data = new Item();
 
     public Item CreateItem() { Item newItem = new Item(this); return newItem; }
@@ -51,6 +52,7 @@ public class Item
     public int ID = -1;
     public ItemProperties[] properties;
     public bool Stackable;
+    public GameObject prefab;
 
     public Item()
     {
@@ -63,6 +65,7 @@ public class Item
         Name = item.name;
         ID = item.data.ID;
         Stackable = item.Stackable;
+        prefab = item.prefab;
         properties = new ItemProperties[item.data.properties.Length];
         for (int i = 0; i < properties.Length; i++)
         {
