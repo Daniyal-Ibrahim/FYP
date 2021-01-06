@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class User_Interface_WindowDraging : MonoBehaviour, IDragHandler , IBeginDragHandler , IEndDragHandler, IPointerDownHandler
+public class User_Interface_WindowDraging : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler
 {
 
     [SerializeField] private RectTransform rectTransform = null;
     [SerializeField] private Canvas canvas = null;
     [SerializeField] private Image backgroundImage = null;
+    [SerializeField] private Image cursor = null;
     private Color backgroundColor;
 
     private void Awake()
@@ -36,5 +37,6 @@ public class User_Interface_WindowDraging : MonoBehaviour, IDragHandler , IBegin
     public void OnPointerDown(PointerEventData eventData)
     {
         rectTransform.SetAsLastSibling();
+        cursor.rectTransform.SetAsLastSibling();
     }
 }
