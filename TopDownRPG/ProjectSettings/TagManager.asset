@@ -5,6 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Tool
+  - Head
+  - Chest
+  - Arm
+  - Leg
+  - Weapon
+  - Shield
+  - Test
+  - Enemy
+  - Item
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX

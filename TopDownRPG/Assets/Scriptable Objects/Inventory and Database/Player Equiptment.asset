@@ -16,98 +16,173 @@ MonoBehaviour:
     Items:
     - Allowed: 07000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 08000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 09000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 0a000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 0c000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 06000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 06000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 06000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 06000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 0b000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 04000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 05000000
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
+        prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
+  UIStatic: {fileID: 0}
   database: {fileID: 11400000, guid: f324c7e79fef4a34ba4ea78066aacce8, type: 2}
+  SpawnPoint: {fileID: 0}
+  savePath: /Equiptment.data

@@ -5,13 +5,14 @@ using UnityEngine.InputSystem;
 
 public class Mouse_cursor : MonoBehaviour
 {
+    public Vector2 mouse;
     private void Start()
     {
         Cursor.visible = false;
     }
     void Update()
     {
-        Vector2 mouse = Mouse.current.position.ReadValue();
+        mouse = Mouse.current.position.ReadValue();
         transform.position = mouse;
     }
 }

@@ -16,327 +16,369 @@ MonoBehaviour:
     Items:
     - Allowed: 
       item:
+        Type: 4
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Sword
+        ID: 17
+        properties:
+        - property: 0
+          value: 9
+          min: 5
+          max: 15
+        Stackable: 0
+        prefab: {fileID: 1513990766360642841, guid: 3f26e03005949fe44a5e3ad25cf8ea77,
+          type: 3}
+        description: Just your average sword
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 4
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Sword
+        ID: 17
+        properties:
+        - property: 0
+          value: 9
+          min: 5
+          max: 15
+        Stackable: 0
+        prefab: {fileID: 1513990766360642841, guid: 3f26e03005949fe44a5e3ad25cf8ea77,
+          type: 3}
+        description: Just your average sword
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 4
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: GreatSword
+        ID: 16
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 2365314360512290824, guid: 51d72a7632549f84ebca13dc1070da32,
+          type: 3}
+        description: A big sword, needs 2 hands
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 8
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Armor or Chest ?
+        ID: 1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 6682285443269920836, guid: 0cb22dc3386c5994ea0766159d9953d6,
+          type: 3}
+        description: "If (get hit)\n{\n    plsDont();\n}"
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 4
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Dagger
+        ID: 18
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 4304721047798271284, guid: a2f73e0d34ede8d499818237a018b3c9,
+          type: 3}
+        description: Big Pointy Dagger
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 4
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Staff
+        ID: 19
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 7827103850368904218, guid: 43aca0c1cc9e87d438527bd5aaf91907,
+          type: 3}
+        description: your a wizzard now
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
     - Allowed: 
       item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
         Name: 
         ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
+        description: 
       amount: 0
       name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-      amount: 0
-      name: 
+  UIStatic: {fileID: 0}
   database: {fileID: 11400000, guid: f324c7e79fef4a34ba4ea78066aacce8, type: 2}
   SpawnPoint: {fileID: 0}
+  savePath: /Inventory.data

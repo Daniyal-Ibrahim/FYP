@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f087065c7834f348a4c0145c9c86b80, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  type: 4
+  icon: {fileID: 1704530735959705138, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: Sword
+  description: Just your average sword
+  Stackable: 0
+  prefab: {fileID: 1513990766360642841, guid: 3f26e03005949fe44a5e3ad25cf8ea77, type: 3}
+  itemProperties: []
+  data:
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
+    Name: 
+    ID: 17
+    properties:
+    - property: 0
+      value: 0
+      min: 5
+      max: 15
+    Stackable: 0
+    prefab: {fileID: 0}
+    description: 

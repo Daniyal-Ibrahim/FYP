@@ -12,16 +12,40 @@ public class Test_Stat_UI : MonoBehaviour
     public Slider stamina;
     private RectTransform sp;
 
+    public GameObject text;
+    public LoadLvls lvl;
+
     private void Awake()
     {
         hp = health.GetComponentInParent<RectTransform>();
         mp = mana.GetComponentInParent<RectTransform>();
         sp = stamina.GetComponentInParent<RectTransform>();
     }
+    IEnumerator LoadMainMenuAfterDealy()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        text.SetActive(false);
+        //UpgradeHealth(1);
+        lvl.LoadMainMenu();
+    }
+    private void Update()
+    {
+        if (health.value <= 0)
+        {
+            text.SetActive(true);
+            StartCoroutine(LoadMainMenuAfterDealy());
+            
+        }
+    }
     public void UpgradeHealth(int value)
     {
         hp.sizeDelta = new Vector2(hp.sizeDelta.x + value, hp.sizeDelta.y);
         SetMaxHealth((int)(hp.sizeDelta.x + value));
+    }
+    public void DowngradeHealth(int value)
+    {
+        hp.sizeDelta = new Vector2(hp.sizeDelta.x - value, hp.sizeDelta.y);
+        SetMaxHealth((int)(hp.sizeDelta.x - value));
     }
     public void AddHealth(int value)
     {

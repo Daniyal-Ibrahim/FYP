@@ -21,62 +21,95 @@ public enum ItemType
 
 public enum Property
 {
-    ID,
-
     Attack,
     Defence,
-
     Heath,
-    Mana,
-
-    Speed,
 }
+/*
+public enum Rarity
+{
+    Common,     // white
+    Uncommon,   // Green
+    Rare,       // Blue
+    Epic,       // Pink
+    Legendary,  // Golden
+} */
+
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/item")]
 public abstract class Item_Master : ScriptableObject
 {
     public ItemType type;
     public Sprite icon;
-    [TextArea(15, 20)]
+    public string itemName;
+    [TextArea(15, 15)]
     public string description;
     public bool Stackable;
     public GameObject prefab;
+    public ItemProperties[] itemProperties;
     public Item data = new Item();
-
     public Item CreateItem() { Item newItem = new Item(this); return newItem; }
-
 }
 
 [System.Serializable]
 public class Item
 {
+    public ItemType Type;
+    public float itemX, itemY, itemZ;
     public string Name;
     public int ID = -1;
     public ItemProperties[] properties;
     public bool Stackable;
     public GameObject prefab;
-
+    public string description;
     public Item()
     {
         Name = "";
-        ID = -1;
-    }   
-
+        ID = -1;   
+    }
     public Item(Item_Master item)
     {
-        Name = item.name;
+        Type = item.type;
+        Name = item.itemName;
         ID = item.data.ID;
         Stackable = item.Stackable;
         prefab = item.prefab;
+        description = item.description;
+
         properties = new ItemProperties[item.data.properties.Length];
         for (int i = 0; i < properties.Length; i++)
         {
-            properties[i].property = item.data.properties[i].property;
+            properties[i] = new ItemProperties(item.data.properties[i].min, item.data.properties[i].max)
+            {
+                property = item.data.properties[i].property
+            };
         }
     }
 }
 
-[System.Serializable]
-public class ItemProperties
-{
-    public Property property;
-    public int value;
-}
+    [System.Serializable]
+    public class ItemProperties
+    {
+        public Property property;
+        public int value;
+
+        
+        public int min;
+        public int max;
+        public ItemProperties(int _min, int _max)
+        {
+            min = _min;
+            max = _max;
+            GenerateValue();
+        }
+
+        public void AddValue(ref int baseValue)
+        {
+            baseValue += value;
+        }
+
+        public void GenerateValue()
+        {
+            value = UnityEngine.Random.Range(min, max);
+        }
+        
+    }

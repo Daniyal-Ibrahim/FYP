@@ -18,7 +18,6 @@ public class AI_Follow : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
     }
-
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);

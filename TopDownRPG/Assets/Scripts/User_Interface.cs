@@ -13,9 +13,8 @@ public abstract class User_Interface : MonoBehaviour
     public Inventroy_Manager manager;
     public Inventory_Master inventory;
     public GameObject SpawnPoint;
-    Mouse mouse = Mouse.current;
-
-
+    public Tooltip tooltip;
+    public int tap;
     protected Dictionary<GameObject, InvetorySlot> interfaceSlot = new Dictionary<GameObject, InvetorySlot>();
 
     void Start()
@@ -27,6 +26,7 @@ public abstract class User_Interface : MonoBehaviour
         CreateSlots();
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
+        tooltip = GameObject.FindWithTag("Tool").GetComponent<Tooltip>();
     }
     void Update()
     {
@@ -53,6 +53,7 @@ public abstract class User_Interface : MonoBehaviour
     }
 
     public abstract void CreateSlots();
+
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -75,12 +76,31 @@ public abstract class User_Interface : MonoBehaviour
     public void OnEnter(GameObject obj)
     {
         MouseData.currentSlot = obj;
+        if (interfaceSlot[obj].item.ID >= 0)
+        {
+            StartCoroutine(ToolTip_Delay());
+            IEnumerator ToolTip_Delay()
+            {
+                yield return new WaitForSeconds(0.5f);
+                tooltip = GameObject.FindWithTag("Tool").GetComponent<Tooltip>();
+                tooltip.Show_Tooltip(interfaceSlot[obj].item);
+            }
+        }
+
     }
 
     public void OnExit(GameObject obj)
     {
         MouseData.currentSlot = null;
+        StopAllCoroutines();
+        tooltip.Hide_Tooltip();
     }
+
+    public void OnPointerClick(GameObject obj)
+    {
+
+    }
+
 
     public void OnDragStart(GameObject obj)
     {
@@ -111,10 +131,10 @@ public abstract class User_Interface : MonoBehaviour
 
         if (MouseData.currentSlot)
         {
-           // Debug.Log("item swap");
+            // Debug.Log("item swap");
             InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
             inventory.SwapItem(interfaceSlot[obj], currentSlotData);
-            manager.Equip();
+            manager.Equip(currentSlotData);
         }
 
         // create equip function
@@ -129,10 +149,44 @@ public abstract class User_Interface : MonoBehaviour
         }
 
     }
+    public void OnPointerClickDynamic(GameObject obj)
+    {
+        // do something
+        if (MouseData.currentSlot)
+        {
+            Debug.Log("test ");
+            
+            InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
+   
+            inventory.AutoEquip_UseItem(currentSlotData);
+            //InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
+            //inventory.SwapItem(interfaceSlot[obj], currentSlotData);
+            //manager.Equip(currentSlotData);
+        }
 
+    }
+
+    public void OnPointerClickStatic(GameObject obj)
+    {
+        // do something
+        if (MouseData.currentSlot)
+        {
+            Debug.Log("test ");
+
+            InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
+
+            Debug.Log("this is " +obj.name+ " " );
+
+            inventory.AutoEquip_UseItem(currentSlotData);
+            //InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
+            //inventory.SwapItem(interfaceSlot[obj], currentSlotData);
+            //manager.Equip(currentSlotData);
+        }
+
+    }
 }
 
-public static class MouseData
+    public static class MouseData
 {
 
     public static User_Interface currentInterface;

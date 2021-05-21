@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Arm
   m_EditorClassIdentifier: 
   type: 9
-  icon: {fileID: 21300000, guid: d4f5634edede200468fc1ccf30e6f3a1, type: 3}
-  description: 
+  icon: {fileID: -8659921585605857471, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: Handy Arms
+  description: 'For when u really need a hand '
   Stackable: 0
+  prefab: {fileID: 8254750575976940416, guid: e7853964f3dcfac4b9241eba1278a578, type: 3}
   data:
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
     Name: 
     ID: 2
     properties: []
     Stackable: 0
+    prefab: {fileID: 0}
+    description: 

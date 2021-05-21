@@ -35,14 +35,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Test"",
-                    ""type"": ""Button"",
-                    ""id"": ""d020c0f9-e21a-41fd-acea-413a3fc73ba2"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""48e5f0e9-a28d-42bb-b4e4-f46ce5251d68"",
@@ -67,9 +59,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Menu"",
+                    ""name"": ""OpenMenu"",
                     ""type"": ""Button"",
-                    ""id"": ""779d640e-a856-4f9c-bd2c-54994a79348c"",
+                    ""id"": ""8df7786c-dfd4-4efb-87ba-832436a2396a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""16094e58-c459-4a3a-a04a-fd40cbf79740"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -190,7 +190,18 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""868f50a5-a419-49b0-957f-8a695563cc40"",
                     ""path"": ""<Keyboard>/i"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a48aedb4-1844-498c-ace3-2aac5cb83b20"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Inventory"",
@@ -232,23 +243,80 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""56ccdbdb-d132-4b39-b1dc-596bd3fbd92f"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""19609f32-0cb7-4f6f-be76-da0e41c449d6"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Test"",
+                    ""action"": ""OpenMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""da3d46b9-fef5-428e-a689-68ded1a31221"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""be6bc563-d85b-45b7-b5a4-933364c7b0ed"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Menu"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Inventory"",
+            ""id"": ""6b5a8a00-814e-495b-86f9-cf079f1403df"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""a073f618-4c23-4d7c-b6ff-2dca6d492859"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""38edb80e-a5ae-4d50-9da7-7163518155ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8bfc916e-a75f-4e28-bf80-f4c1c70db53c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8edf617-8ce7-4da4-9721-a50ffc38a8a7"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce359770-d768-4fc2-9b7f-2534ae6379c2"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -261,11 +329,15 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
-        m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Primary_Attack = m_Player.FindAction("Primary_Attack", throwIfNotFound: true);
         m_Player_Secondary_Attack = m_Player.FindAction("Secondary_Attack", throwIfNotFound: true);
-        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
+        m_Player_OpenMenu = m_Player.FindAction("OpenMenu", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        // Inventory
+        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+        m_Inventory_Newaction = m_Inventory.FindAction("New action", throwIfNotFound: true);
+        m_Inventory_Inventory = m_Inventory.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -317,22 +389,22 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Sprint;
-    private readonly InputAction m_Player_Test;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Primary_Attack;
     private readonly InputAction m_Player_Secondary_Attack;
-    private readonly InputAction m_Player_Menu;
+    private readonly InputAction m_Player_OpenMenu;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
         public PlayerActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
-        public InputAction @Test => m_Wrapper.m_Player_Test;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Primary_Attack => m_Wrapper.m_Player_Primary_Attack;
         public InputAction @Secondary_Attack => m_Wrapper.m_Player_Secondary_Attack;
-        public InputAction @Menu => m_Wrapper.m_Player_Menu;
+        public InputAction @OpenMenu => m_Wrapper.m_Player_OpenMenu;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -348,9 +420,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
-                @Test.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTest;
-                @Test.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTest;
-                @Test.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTest;
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
@@ -360,9 +429,12 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Secondary_Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
                 @Secondary_Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
                 @Secondary_Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondary_Attack;
-                @Menu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
-                @Menu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
-                @Menu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMenu;
+                @OpenMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenMenu;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -373,9 +445,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
-                @Test.started += instance.OnTest;
-                @Test.performed += instance.OnTest;
-                @Test.canceled += instance.OnTest;
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
@@ -385,21 +454,70 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Secondary_Attack.started += instance.OnSecondary_Attack;
                 @Secondary_Attack.performed += instance.OnSecondary_Attack;
                 @Secondary_Attack.canceled += instance.OnSecondary_Attack;
-                @Menu.started += instance.OnMenu;
-                @Menu.performed += instance.OnMenu;
-                @Menu.canceled += instance.OnMenu;
+                @OpenMenu.started += instance.OnOpenMenu;
+                @OpenMenu.performed += instance.OnOpenMenu;
+                @OpenMenu.canceled += instance.OnOpenMenu;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Inventory
+    private readonly InputActionMap m_Inventory;
+    private IInventoryActions m_InventoryActionsCallbackInterface;
+    private readonly InputAction m_Inventory_Newaction;
+    private readonly InputAction m_Inventory_Inventory;
+    public struct InventoryActions
+    {
+        private @InputMaster m_Wrapper;
+        public InventoryActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Inventory_Newaction;
+        public InputAction @Inventory => m_Wrapper.m_Inventory_Inventory;
+        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+        public void SetCallbacks(IInventoryActions instance)
+        {
+            if (m_Wrapper.m_InventoryActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnNewaction;
+                @Inventory.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnInventory;
+            }
+            m_Wrapper.m_InventoryActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
+            }
+        }
+    }
+    public InventoryActions @Inventory => new InventoryActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
-        void OnTest(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnPrimary_Attack(InputAction.CallbackContext context);
         void OnSecondary_Attack(InputAction.CallbackContext context);
-        void OnMenu(InputAction.CallbackContext context);
+        void OnOpenMenu(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IInventoryActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }

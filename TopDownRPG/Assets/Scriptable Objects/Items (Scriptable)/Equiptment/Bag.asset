@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Bag
   m_EditorClassIdentifier: 
   type: 12
-  icon: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
+  icon: {fileID: -143208548368856878, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: 
   description: 
   Stackable: 0
+  prefab: {fileID: 0}
   data:
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
     Name: 
     ID: 4
     properties: []
     Stackable: 0
+    prefab: {fileID: 0}
+    description: 

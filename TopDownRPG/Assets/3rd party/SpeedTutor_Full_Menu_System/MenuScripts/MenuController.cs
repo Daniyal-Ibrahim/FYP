@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.IO;
+using System.Xml;
 
-namespace SpeedTutorMainMenuSystem
-{
-    public class MenuController : MonoBehaviour
+public class MenuController : MonoBehaviour
     {
         #region Default Values
         [Header("Default Menu Values")]
@@ -32,6 +32,10 @@ namespace SpeedTutorMainMenuSystem
         [SerializeField] private GameObject gameplayMenu;
         [SerializeField] private GameObject controlsMenu;
         [SerializeField] private GameObject confirmationMenu;
+        public GameObject managerObj;
+        public GameManager manager;
+        public Animator animator;
+        public float waittime;
         [Space(10)]
         [Header("Menu Popout Dialogs")]
         [SerializeField] private GameObject noSaveDialog;
@@ -53,10 +57,29 @@ namespace SpeedTutorMainMenuSystem
         [SerializeField] private Slider volumeSlider;
         [Space(10)]
         [SerializeField] private Toggle invertYToggle;
-        #endregion
+    #endregion
 
-        #region Initialisation - Button Selection & Menu Order
-        private void Start()
+    #region Initialisation - Button Selection & Menu Order
+    public bool newgame;
+    public static MenuController instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
+        //DontDestroyOnLoad(gameObject);
+        managerObj = GameObject.Find("GameManager");
+        manager = managerObj.GetComponent(typeof(GameManager))as GameManager;
+    }
+    private void Start()
         {
             menuNumber = 1;
         }
@@ -70,8 +93,20 @@ namespace SpeedTutorMainMenuSystem
             confirmationMenu.SetActive(false);
         }
 
+
+    IEnumerator FuckThisUIShit()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        gameObject.SetActive(false);
+    }
         private void Update()
         {
+
+        if (manager.lvlLoaded)
+        {
+            StartCoroutine(FuckThisUIShit());
+        }
+            
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (menuNumber == 2 || menuNumber == 7 || menuNumber == 8)
@@ -145,6 +180,7 @@ namespace SpeedTutorMainMenuSystem
 
             if (buttonType == "LoadGame")
             {
+                manager.setloadGame();
                 menuDefaultCanvas.SetActive(false);
                 loadGameDialog.SetActive(true);
                 menuNumber = 8;
@@ -152,6 +188,7 @@ namespace SpeedTutorMainMenuSystem
 
             if (buttonType == "NewGame")
             {
+                manager.setNewGame();
                 menuDefaultCanvas.SetActive(false);
                 newGameDialog.SetActive(true);
                 menuNumber = 7;
@@ -242,51 +279,111 @@ namespace SpeedTutorMainMenuSystem
             }
         }
         #endregion
-
+        
         #region Dialog Options - This is where we load what has been saved in player prefs!
         public void ClickNewGameDialog(string ButtonType)
         {
             if (ButtonType == "Yes")
             {
-                SceneManager.LoadScene(1);
-            }
+            newgame = true;
+            Debug.Log("Menu Controller is new game " + newgame);
+            //SceneManager.LoadScene(1);
+
+            StartCoroutine(LoadDealy());
+            //SceneManager.LoadScene(1);
+            manager.setNewGame();
+            manager.lvlLoaded = true;
+            GoBackToMainMenu();
+            //manager.SaveGame();
+            //this.gameObject.SetActive(false);
+        }
 
             if (ButtonType == "No")
             {
-                GoBackToMainMenu();
+            manager.unsetNewGame();
+            newgame = false;
+            Debug.Log("Menu Controller is new game " + newgame);
+            GoBackToMainMenu();
             }
         }
-
         public void ClickLoadGameDialog(string ButtonType)
         {
             if (ButtonType == "Yes")
             {
-                if (PlayerPrefs.HasKey("SavedLevel"))
-                {
-                    Debug.Log("I WANT TO LOAD THE SAVED GAME");
-                    //LOAD LAST SAVED SCENE
-                    levelToLoad = PlayerPrefs.GetString("SavedLevel");
-                    SceneManager.LoadScene(levelToLoad);
-                }
+            newgame = false;
 
+            string filePath = Application.dataPath + "/Data.save";
+            if (File.Exists(filePath))
+            {
+
+                Save save = new Save();
+
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load(filePath);
+
+                XmlNodeList items = xmlDocument.GetElementsByTagName("Item");
+
+                #region Get Save Data from File
+
+                XmlNodeList currentlvl = xmlDocument.GetElementsByTagName("SavedLevel");
+                string CurLVLNum = currentlvl[0].InnerText;
+                save.currentlvl = CurLVLNum;
+
+
+                #endregion
+                /*
+                if (File.Exists(Application.dataPath + "/Data.save"))
+                {
+                Debug.Log("Menu Controller is new game " + newgame);
+                StreamReader sr = new StreamReader(Application.dataPath + "/Data.save");
+                string JsonString = sr.ReadToEnd();
+                sr.Close();
+                Save save = JsonUtility.FromJson<Save>(JsonString);
+                // loading the current lvl
+                */
+                StartCoroutine(LoadDealy(save));
+                manager.lvlLoaded = true;
+                manager.loadGame = true;
+                //this.gameObject.SetActive(false);
+                GoBackToMainMenu();
+                Debug.Log("Loaded");
+                
+                }
                 else
                 {
+                    manager.unsetloadGame();
                     Debug.Log("Load Game Dialog");
                     menuDefaultCanvas.SetActive(false);
                     loadGameDialog.SetActive(false);
                     noSaveDialog.SetActive(true);
-                }
+                newgame = true;
+            }
             }
 
             if (ButtonType == "No")
             {
+                manager.unsetloadGame();
                 GoBackToMainMenu();
             }
         }
-        #endregion
+    #endregion
 
-        #region Back to Menus
-        public void GoBackToOptionsMenu()
+    IEnumerator LoadDealy(Save save)
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSecondsRealtime(waittime);
+        SceneManager.LoadScene(save.currentlvl);
+    }
+
+    IEnumerator LoadDealy()
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSecondsRealtime(waittime);
+        SceneManager.LoadScene(1);
+    }
+
+    #region Back to Menus
+    public void GoBackToOptionsMenu()
         {
             GeneralSettingsCanvas.SetActive(true);
             graphicsMenu.SetActive(false);
@@ -331,4 +428,4 @@ namespace SpeedTutorMainMenuSystem
         }
         #endregion
     }
-}
+

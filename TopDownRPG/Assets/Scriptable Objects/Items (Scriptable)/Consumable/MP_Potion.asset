@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: MP_Potion
   m_EditorClassIdentifier: 
   type: 2
-  icon: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
-  description: 
+  icon: {fileID: -1847224337267446819, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: HP Up Potion
+  description: Increases Max HP
   Stackable: 1
-  prefab: {fileID: 3698428143252391881, guid: 0920dade8c2d0344793c7b64472549a2, type: 3}
+  prefab: {fileID: 3470458425521324471, guid: 1ca2bec9b9010db4da7689133281af05, type: 3}
+  itemProperties: []
   data:
-    Name: 
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
+    Name: the potion of mana nature
     ID: 12
     properties: []
     Stackable: 0
-    prefab: {fileID: 3698428143252391881, guid: 0920dade8c2d0344793c7b64472549a2,
-      type: 3}
+    prefab: {fileID: 0}
+    description: giff me mana

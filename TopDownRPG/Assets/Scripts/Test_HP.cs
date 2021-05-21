@@ -5,24 +5,28 @@ using UnityEngine.UI;
 
 public class Test_HP : MonoBehaviour
 {
-    public int maxHealth;
-    public int curHealth;
+    public float maxHealth;
+    public float curHealth;
     public Animator animator;
-    public Slider Slider;
+    public Image image;
+    public GameObject ragdoll;
     // Update is called once per frame
 
     private void Awake()
     {
         curHealth = maxHealth;
-        Slider.maxValue = maxHealth;
+        image.fillAmount = 1f;
+        //Slider.maxValue = maxHealth;
     }
 
     public void Damaged(int value)
     {
         curHealth -= value;
-        Slider.value -= value;
+        Debug.Log("new hp = " + (value / maxHealth));
+        image.fillAmount = (curHealth / maxHealth);
+        //Slider.value -= value;
         if (curHealth <= 0)
-        {
+        {            
             Death();
         }
         else
@@ -33,11 +37,9 @@ public class Test_HP : MonoBehaviour
     }
     public void Death()
     {
-        Debug.Log("Dead");
-        animator.SetTrigger("Death");
-        //Destroy(this.gameObject);
-        Destroy(animator, 3);
-        Destroy(this.gameObject, 5);
+        Destroy(this.GetComponent<BoxCollider>());
+        Instantiate(ragdoll, this.transform.localPosition, this.transform.localRotation);
+        Destroy(this.gameObject);
     }
 
 

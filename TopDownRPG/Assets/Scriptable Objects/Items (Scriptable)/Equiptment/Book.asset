@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Book
   m_EditorClassIdentifier: 
   type: 11
-  icon: {fileID: 21300000, guid: ae496f5dad56ea645b72d374a0376368, type: 3}
+  icon: {fileID: -8409008894314519048, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: 
   description: 
   Stackable: 0
+  prefab: {fileID: 0}
   data:
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
     Name: 
     ID: 9
     properties: []
     Stackable: 0
+    prefab: {fileID: 0}
+    description: 

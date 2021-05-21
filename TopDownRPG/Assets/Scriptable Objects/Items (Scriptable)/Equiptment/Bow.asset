@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f087065c7834f348a4c0145c9c86b80, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: 
+  type: 5
+  icon: {fileID: -7656981068869977111, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: Bow
+  description: Phew Phew
+  Stackable: 0
+  prefab: {fileID: 6103269875326012545, guid: 0b039c0b1388e7749b9efbfccf037e6e, type: 3}
+  itemProperties: []
+  data:
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
+    Name: 
+    ID: 22
+    properties:
+    - property: 0
+      value: 0
+      min: 5
+      max: 15
+    Stackable: 0
+    prefab: {fileID: 0}
+    description: 

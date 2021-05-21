@@ -10,7 +10,6 @@ public class Player_Input : MonoBehaviour
     // Input Controls
     public InputMaster controls;
     // Movement
-    [SerializeField] float Move_Speed = 10f;
     private Vector2 inputVector = new Vector2(0, 0);
     private Rigidbody rb;
     private float range = 100f;
@@ -21,10 +20,13 @@ public class Player_Input : MonoBehaviour
     private bool Cast_Loop = false;
     private bool Cast_End = false;
     public float nextinput = 0f;
+    public bool isTalking;
+    public bool canRotate = true;
     // UI
     //public GameObject Inventroy;
     //public GameObject Equiptment;
     //public bool Active = false;
+    public GameObject pauseMenu;
     // Attack
     private int combo = 0;
     private float reset; // if we should reset 
@@ -33,9 +35,18 @@ public class Player_Input : MonoBehaviour
     List<string> Trigger_list = new List<string>(new string[] { "Trigger 1", "Trigger 2", "Trigger 3" });
     // Item pickup
     public bool pickup = false;
+    public DialogTrigger dialog;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    public AdvancedAudioManager audioManager;
+
+    public void FootStep()
+    {
+        audioManager = GameObject.Find("Advanced Audio Manager").GetComponent<AdvancedAudioManager>();
+        audioManager.PlaySound("FootStep");
     }
 
     //public void Inventory(InputAction.CallbackContext context)
@@ -81,13 +92,10 @@ public class Player_Input : MonoBehaviour
 
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(0.01f);
-        Debug.Log("cancled");
-        animator.SetFloat("Attack", context.ReadValue<float>());
-        animator.SetBool("Primary", false);
+
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
-
     IEnumerator Cast_Delay(InputAction.CallbackContext context)
     {
         //Print the time of when the function is first called.
@@ -99,7 +107,6 @@ public class Player_Input : MonoBehaviour
         //After we have waited 5 seconds print the time again.
         //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
-
     IEnumerator Attack_Delay(InputAction.CallbackContext context)
     {
         //Print the time of when the function is first called.
@@ -121,19 +128,8 @@ public class Player_Input : MonoBehaviour
         //After we have waited x seconds print the time again.
         //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
-
-    public void Test(InputAction.CallbackContext context)
-    {
-        if (context.performed == true)
-            animator.SetBool("Pickup", true);
-
-        if (context.canceled == true)
-            animator.SetBool("Pickup", false);
-
-    }
     public void Primary_Attack(InputAction.CallbackContext context)
     {
-
         if (context.performed == true && combo < 3)
         {
             StopAllCoroutines();
@@ -154,58 +150,6 @@ public class Player_Input : MonoBehaviour
         {
             StartCoroutine(Attack_Delay(context));
         }
-
-
-        //if ((context.performed == true) && (combo < 3))
-        //{
-
-        //    animator.SetTrigger(Trigger_list[combo]);
-        //    combo++;
-        //    reset = 0f;
-        //    Debug.Log("Combo =" + combo + " reset =" + reset);
-        //}
-        //if (combo > 0 && combo < 3)
-        //{
-        //    reset += Time.deltaTime;
-        //    Debug.Log("Combo =" + combo + " reset =" + reset);
-        //    if (reset > reset_time)
-        //    {
-        //        reset = 1;
-        //        animator.SetTrigger("Reset");
-        //        combo = 0;
-        //        Debug.Log("Combo =" + combo + " reset =" + reset);
-        //    }
-        //}
-        //if (combo == 3)
-        //{
-        //    reset_time = 1f;
-        //    combo = 0;
-        //    reset = 1;
-        //    Debug.Log("Combo =" + combo + " reset =" + reset);
-        //}
-        //else
-        //{
-        //    reset_time = 1f;
-        //}
-        //if (context.started == true /*&& context.control.IsActuated() == true && Time.time >= nextattack */)
-        //{
-        //    animator.SetBool("Primary", true);
-        //    animator.SetBool("Secondary", false);
-        //    animator.SetFloat("P", context.ReadValue<float>());
-        //    nextattack = Time.time + 1f / attack_Delay;
-        //    Debug.Log("pressed");
-        //    StartCoroutine(ExampleCoroutine(context));
-        //}
-        //if (context.canceled == true)
-        //{
-        //    animator.SetFloat("P", context.ReadValue<float>());
-        //    animator.SetBool("Primary", false);
-        //}
-
-        //Debug.Log("Started: " + context.started.ToString() + "  iteration :" + f);
-        //Debug.Log("Performed: " + context.performed.ToString() + "  iteration :" + f);
-        //Debug.Log("Completed: " + context.canceled.ToString() + "  iteration :" + f);
-        //f++;
     }
     public void Secondary_Attack(InputAction.CallbackContext context)
     {
@@ -254,21 +198,66 @@ public class Player_Input : MonoBehaviour
             }
         }
     }
+    public void OpenMenu(InputAction.CallbackContext context)
+    {
+        if (pauseMenu.active == true)
+        {
+            pauseMenu.SetActive(false);
+        }
+        else
+            pauseMenu.SetActive(true);
+    }
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (context.performed == true && isTalking)
+        {
+            Debug.Log("Interact");
+            dialog.talking = true;
+            dialog.TriggerDialog();
+            canRotate = false;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        dialog = other.GetComponent<DialogTrigger>();
+        if (dialog)
+        {
+            isTalking = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        dialog = other.GetComponent<DialogTrigger>();
+        if (dialog)
+        {
+            isTalking = false;
+            dialog.talking = false;
+            FindObjectOfType<DialogManager>().EndDialog();
+            canRotate = true;
+        }
+    }
+
     private void Update()
     {
         // Animation Based Movement
         PlayerAnimation();
     }
-
     private void FixedUpdate()
     {
         // physics based movement
         //PlayerMovement();
         // physics based rotation
-        PlayerRoation();
+        
+        if (canRotate)
+        {
+            PlayerRoation();
+        }
+        
+        
 
     }
-
     private void PlayerRoation()
     {
         Mouse mouse = Mouse.current;

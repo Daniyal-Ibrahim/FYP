@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: HP_Potion
   m_EditorClassIdentifier: 
   type: 2
-  icon: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
-  description: 
+  icon: {fileID: -1241399281213930050, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: HP Potion
+  description: Click to use , Restores 50Hp on use
   Stackable: 1
-  prefab: {fileID: 8097321270354037611, guid: 063355617fdc36e4a982a2ddfcc8d78e, type: 3}
+  prefab: {fileID: 5817670043273275873, guid: 458d9661f0b47494a9eeabc614672482, type: 3}
   data:
-    Name: 
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
+    Name: the name of potions of hp nature
     ID: 13
     properties: []
     Stackable: 0
-    prefab: {fileID: 8097321270354037611, guid: 063355617fdc36e4a982a2ddfcc8d78e,
-      type: 3}
+    prefab: {fileID: 0}
+    description: THIS IS THE POTION OF HP
