@@ -16,55 +16,178 @@ MonoBehaviour:
     Items:
     - Allowed: 
       item:
-        Type: 4
+        Type: 0
         itemX: 0
         itemY: 0
         itemZ: 0
-        Name: Sword
-        ID: 17
-        properties:
-        - property: 0
-          value: 9
-          min: 5
-          max: 15
-        Stackable: 0
-        prefab: {fileID: 1513990766360642841, guid: 3f26e03005949fe44a5e3ad25cf8ea77,
-          type: 3}
-        description: Just your average sword
-      amount: 1
+        Name: Silver Coins
+        ID: 0
+        properties: []
+        Stackable: 1
+        prefab: {fileID: 0}
+        description: Basic Currency
+      amount: 100
       name: 
     - Allowed: 
       item:
-        Type: 4
+        Type: 0
         itemX: 0
         itemY: 0
         itemZ: 0
-        Name: Sword
-        ID: 17
-        properties:
-        - property: 0
-          value: 9
-          min: 5
-          max: 15
-        Stackable: 0
-        prefab: {fileID: 1513990766360642841, guid: 3f26e03005949fe44a5e3ad25cf8ea77,
-          type: 3}
-        description: Just your average sword
-      amount: 1
-      name: 
-    - Allowed: 
-      item:
-        Type: 4
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: GreatSword
-        ID: 16
+        Name: 
+        ID: -1
         properties: []
         Stackable: 0
-        prefab: {fileID: 2365314360512290824, guid: 51d72a7632549f84ebca13dc1070da32,
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Type: 7
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Studded Leather Helmet
+        ID: 1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 9019741954742310768, guid: 477f24b4ae84ec74f81eb3ca58539ec9,
           type: 3}
-        description: A big sword, needs 2 hands
+        description: Made from tough but flexible leather, studded leather is reinforced
+          with close-set rivets or spikes.
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 7
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Half-Plate Helmate
+        ID: 5
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: "Half plate consists of shaped metal plates that cover most
+          of the wearer\u2019s body."
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 7
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Full-Plate Helmate
+        ID: 9
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: Plate consists of shaped, interlocking metal plates to cover
+          the entire body. A suit of plate includes gauntlets, heavy leather boots,
+          a visored helmet, and thick layers of padding underneath the armor. Buckles
+          and straps distribute the weight over the body
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 
+      item:
+        Type: 8
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Studded Leather Armor
+        ID: 2
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 9019741954742310768, guid: 477f24b4ae84ec74f81eb3ca58539ec9,
+          type: 3}
+        description: Made from tough but flexible leather, studded leather is reinforced
+          with close-set rivets or spikes.
       amount: 1
       name: 
     - Allowed: 
@@ -73,43 +196,30 @@ MonoBehaviour:
         itemX: 0
         itemY: 0
         itemZ: 0
-        Name: Armor or Chest ?
-        ID: 1
+        Name: Half-Plate Armor
+        ID: 6
         properties: []
         Stackable: 0
-        prefab: {fileID: 6682285443269920836, guid: 0cb22dc3386c5994ea0766159d9953d6,
-          type: 3}
-        description: "If (get hit)\n{\n    plsDont();\n}"
+        prefab: {fileID: 0}
+        description: "Half plate consists of shaped metal plates that cover most
+          of the wearer\u2019s body."
       amount: 1
       name: 
     - Allowed: 
       item:
-        Type: 4
+        Type: 8
         itemX: 0
         itemY: 0
         itemZ: 0
-        Name: Dagger
-        ID: 18
+        Name: Full-Plate Armor
+        ID: 10
         properties: []
         Stackable: 0
-        prefab: {fileID: 4304721047798271284, guid: a2f73e0d34ede8d499818237a018b3c9,
-          type: 3}
-        description: Big Pointy Dagger
-      amount: 1
-      name: 
-    - Allowed: 
-      item:
-        Type: 4
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: Staff
-        ID: 19
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 7827103850368904218, guid: 43aca0c1cc9e87d438527bd5aaf91907,
-          type: 3}
-        description: your a wizzard now
+        prefab: {fileID: 0}
+        description: Plate consists of shaped, interlocking metal plates to cover
+          the entire body. A suit of plate includes gauntlets, heavy leather boots,
+          a visored helmet, and thick layers of padding underneath the armor. Buckles
+          and straps distribute the weight over the body
       amount: 1
       name: 
     - Allowed: 
@@ -128,17 +238,67 @@ MonoBehaviour:
       name: 
     - Allowed: 
       item:
-        Type: 0
+        Type: 10
         itemX: 0
         itemY: 0
         itemZ: 0
-        Name: 
-        ID: -1
+        Name: Studded Leather Pants
+        ID: 4
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 9019741954742310768, guid: 477f24b4ae84ec74f81eb3ca58539ec9,
+          type: 3}
+        description: Made from tough but flexible leather, studded leather is reinforced
+          with close-set rivets or spikes.
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 9
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Studded Leather Gloves
+        ID: 3
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 9019741954742310768, guid: 477f24b4ae84ec74f81eb3ca58539ec9,
+          type: 3}
+        description: Made from tough but flexible leather, studded leather is reinforced
+          with close-set rivets or spikes.
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 9
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Half-Plate Gloves
+        ID: 7
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
-        description: 
-      amount: 0
+        description: "Half plate consists of shaped metal plates that cover most
+          of the wearer\u2019s body."
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 9
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Full-Plate Gloves
+        ID: 11
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: Plate consists of shaped, interlocking metal plates to cover
+          the entire body. A suit of plate includes gauntlets, heavy leather boots,
+          a visored helmet, and thick layers of padding underneath the armor. Buckles
+          and straps distribute the weight over the body
+      amount: 1
       name: 
     - Allowed: 
       item:
@@ -184,17 +344,35 @@ MonoBehaviour:
       name: 
     - Allowed: 
       item:
-        Type: 0
+        Type: 10
         itemX: 0
         itemY: 0
         itemZ: 0
-        Name: 
-        ID: -1
+        Name: Half-Plate Pants
+        ID: 8
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
-        description: 
-      amount: 0
+        description: "Half plate consists of shaped metal plates that cover most
+          of the wearer\u2019s body."
+      amount: 1
+      name: 
+    - Allowed: 
+      item:
+        Type: 10
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: Full-Plate Pants
+        ID: 12
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: Plate consists of shaped, interlocking metal plates to cover
+          the entire body. A suit of plate includes gauntlets, heavy leather boots,
+          a visored helmet, and thick layers of padding underneath the armor. Buckles
+          and straps distribute the weight over the body
+      amount: 1
       name: 
     - Allowed: 
       item:
@@ -210,175 +388,6 @@ MonoBehaviour:
         description: 
       amount: 0
       name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-    - Allowed: 
-      item:
-        Type: 0
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: 
-        ID: -1
-        properties: []
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: 
-      amount: 0
-      name: 
-  UIStatic: {fileID: 0}
-  database: {fileID: 11400000, guid: f324c7e79fef4a34ba4ea78066aacce8, type: 2}
+  database: {fileID: 11400000, guid: fce6d7f311ee4554ea429a339a899e7a, type: 2}
   SpawnPoint: {fileID: 0}
   savePath: /Inventory.data

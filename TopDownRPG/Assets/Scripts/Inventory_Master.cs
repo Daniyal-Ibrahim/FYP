@@ -16,19 +16,22 @@ public enum InterfaceType
 public class Inventory_Master : ScriptableObject
 {
     public Inventory Container;
-    public User_Interface_Static UIStatic;
     public Item_Database database;
     public GameObject SpawnPoint;
     // implementing saveing and loading inventory
     public string savePath;
     public InvetorySlot[] GetItems {get { return Container.Items; }}
 
+
+    // Add the item and its ammount to the inventory 
     public bool AddItem(Item item, int amount)
     {
+        // if the item exits in the inventory
         InvetorySlot slot = FindItemOnInventory(item);
+        // if its count is more then 0
         if (EmptySlotsCount <= 0) 
         {
-
+            // and if the item is stackable (extra check to prevent a sword from being re added)
             if (database.Items[item.ID].Stackable)
             {
                 slot.AddAmount(amount);
@@ -38,7 +41,7 @@ public class Inventory_Master : ScriptableObject
                 return false; 
         }
 
-        
+        // if the item is not stackable aka swords and what not
         if (!database.Items[item.ID].Stackable || slot == null)
         {
             //for(int i =0; i < amount; i++) { 
@@ -79,9 +82,7 @@ public class Inventory_Master : ScriptableObject
     }
     public void AutoEquip_UseItem(InvetorySlot slot1)
     {
-        GameObject obj = GameObject.Find("EquiptmentSlotHolder");
 
-        UIStatic = obj.GetComponent(typeof(User_Interface_Static)) as User_Interface_Static;
         if (slot1.item.Type.ToString() == "Consumables")
         {
             Debug.Log("this item is a Consumable" + slot1.name);
@@ -93,8 +94,10 @@ public class Inventory_Master : ScriptableObject
     }
     public InvetorySlot SetEmptySlot(Item item, int amount)
     {
+        // get a list of all the items 
         for (int i = 0; i < GetItems.Length; i++)
         {
+            // if the item is valid e.g not a -1 ID
             if (GetItems[i].item.ID <= -1)
             {
                 GetItems[i].UpdateSlot(item, amount);
@@ -107,6 +110,9 @@ public class Inventory_Master : ScriptableObject
 
     public void SwapItem(InvetorySlot Swap1, InvetorySlot Swap2)
     {
+        // swap 1 is the obj the mouse is dragging 
+        // swap 2 is the obj on the interface
+
         //Debug.Log("item swap function called");
         if (Swap2.Placeable(Swap1.Item_Master) && Swap1.Placeable(Swap2.Item_Master))
         {
@@ -115,6 +121,14 @@ public class Inventory_Master : ScriptableObject
             Swap2.UpdateSlot(Swap1.item, Swap1.amount);
             Swap1.UpdateSlot(temp.item, temp.amount);
         }
+
+        // try to equip the item if it can be equiped
+
+    }
+
+    public void Equip(InvetorySlot slot1, InvetorySlot slot2)
+    {
+        
     }
 
     public void DropItem(Item item)
@@ -214,6 +228,11 @@ public class InvetorySlot
         amount += value;
     }
 
+    public void SubAmount(int value)
+    {
+        amount -= value;
+    }
+
     public void UpdateSlot( Item item, int amount)
     {
         this.item = item;
@@ -225,12 +244,28 @@ public class InvetorySlot
     {
         // find the sapwn point
         GameObject spawnpoint = GameObject.Find("Spawn_Point");
-        //non stackable objects
+        // spawn the item prefab
         GameObject.Instantiate(item.prefab, spawnpoint.transform.position, spawnpoint.transform.rotation);
-        item = new Item();
+        // set the item prefab properties 
+        //item.prefab.GetComponent<Item_PickUp>().pickUp = ;
+        //item = new Item();
+        //item.prefab.GetComponent<Item_PickUp>().amount = 10;
+        GameManager game = new GameManager();
+        game.SaveGame();
+    }
+
+    public void RemoveItem(int amount)
+    {
+        // find the sapwn point
+        GameObject spawnpoint = GameObject.Find("Spawn_Point");
+        //stackable objects
+        item.prefab.GetComponent<Item_PickUp>().amount = amount;
+        GameObject.Instantiate(item.prefab, spawnpoint.transform.position, spawnpoint.transform.rotation);
+        
+        //item = new Item();
 
         // if item stackable show menu
-        //item.prefab.GetComponent<Item_PickUp>().amount = 10;
+        
         GameManager game = new GameManager();
         game.SaveGame();
     }

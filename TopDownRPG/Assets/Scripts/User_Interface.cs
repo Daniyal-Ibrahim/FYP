@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using System.Collections.Generic;
+using System.Collections;
+using System.Text;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine;
+using TMPro;
+
 
 public abstract class User_Interface : MonoBehaviour
 {
@@ -27,10 +29,22 @@ public abstract class User_Interface : MonoBehaviour
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
         tooltip = GameObject.FindWithTag("Tool").GetComponent<Tooltip>();
+        split_slider.minValue = 1;
     }
     void Update()
     {
         UpdateSlots();
+
+
+        if (spliting)
+        {
+            //split_slider.value = Mathf.RoundToInt(split_itemAmountToSplit);
+            split_itemAmountToSplit = Mathf.RoundToInt(split_slider.value);
+            StringBuilder builder = new StringBuilder();
+            builder.Append(split_slider.value).Append(" / ").Append(split_itemAmountTotal);
+            //Debug.Log(+split_itemAmountToSplit + " " + split_itemAmountTotal + "");
+            split_amount.text = builder.ToString();
+        }
     }
 
     public void UpdateSlots()
@@ -117,15 +131,60 @@ public abstract class User_Interface : MonoBehaviour
         MouseData.currentObject = mouseObject;
     }
 
+    // thigns needed to split items
+    public Image split_image;
+    public TextMeshProUGUI split_name;
+    public Slider split_slider;
+    public TextMeshProUGUI split_amount;
+    int split_itemAmountToSplit;
+    int split_itemAmountTotal;
+    public GameObject split_pannel;
+    public bool spliting = false;
+    GameObject splieter;
+    public void Confirm()
+    {
+        spliting = false;
+        split_pannel.SetActive(false);
+        interfaceSlot[splieter].SubAmount(split_itemAmountToSplit);
+        interfaceSlot[splieter].RemoveItem(split_itemAmountToSplit);
+
+
+    }
+
+    public void Cancel()
+    {
+        spliting = false;
+        split_pannel.SetActive(false);
+    }
+
     public void OnDragEnd(GameObject obj)
     {
         Destroy(MouseData.currentObject);
-
+        // if you are dropping the item
         if (MouseData.currentInterface == null)
         {
             //destroy item
-            interfaceSlot[obj].RemoveItem();
-            //Debug.Log("item spawn/destroy");
+            if (interfaceSlot[obj].item.Stackable && interfaceSlot[obj].amount > 1)
+            {
+                spliting = true;
+                split_pannel.SetActive(true);
+                // get data
+                split_image.sprite = interfaceSlot[obj].Item_Master.icon;
+                split_name.text = interfaceSlot[obj].Item_Master.itemName;
+                split_itemAmountTotal = interfaceSlot[obj].amount;
+                split_itemAmountToSplit = Mathf.RoundToInt(split_itemAmountTotal / 2);
+                Debug.Log("Total amount = " + split_itemAmountTotal + " Items Split = " + split_itemAmountToSplit +  " ");
+                split_slider.maxValue = split_itemAmountTotal - 1;
+                split_slider.value = split_itemAmountToSplit;
+                // wait for confirm or cancel
+                splieter = obj;
+                return;
+                //Debug.Log("item spawn/destroy");
+            }
+            else 
+            {
+                interfaceSlot[obj].RemoveItem();
+            }
             return;
         }
 
@@ -134,7 +193,18 @@ public abstract class User_Interface : MonoBehaviour
             // Debug.Log("item swap");
             InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
             inventory.SwapItem(interfaceSlot[obj], currentSlotData);
-            manager.Equip(currentSlotData);
+            if (MouseData.currentInterface.GetComponent<User_Interface_Static>())
+            {
+                Debug.Log("This is the equiptment screen");
+                manager.NEquip(interfaceSlot[obj], currentSlotData);
+            }
+
+            if (MouseData.currentInterface.GetComponent<User_Interface_Dynamic>())
+            {
+                Debug.Log("This is the Inventory screen");
+                manager.NEquip(interfaceSlot[obj], currentSlotData);
+            }
+
         }
 
         // create equip function
@@ -171,7 +241,6 @@ public abstract class User_Interface : MonoBehaviour
         // do something
         if (MouseData.currentSlot)
         {
-            Debug.Log("test ");
 
             InvetorySlot currentSlotData = MouseData.currentInterface.interfaceSlot[MouseData.currentSlot];
 

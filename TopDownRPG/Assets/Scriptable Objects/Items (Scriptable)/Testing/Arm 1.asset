@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f087065c7834f348a4c0145c9c86b80, type: 3}
+  m_Name: Arm 1
+  m_EditorClassIdentifier: 
+  type: 9
+  icon: {fileID: -8659921585605857471, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: Studded Leather Gloves
+  description: Made from tough but flexible leather, studded leather is reinforced
+    with close-set rivets or spikes.
+  Stackable: 0
+  spawnPrefab: {fileID: 9019741954742310768, guid: 477f24b4ae84ec74f81eb3ca58539ec9,
+    type: 3}
+  models: []
+  itemProperties: []
+  data:
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
+    Name: 
+    ID: 3
+    properties: []
+    Stackable: 0
+    prefab: {fileID: 0}
+    description: 

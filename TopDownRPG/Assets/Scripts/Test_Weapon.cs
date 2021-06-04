@@ -8,8 +8,7 @@ public class Test_Weapon : MonoBehaviour
     public int Damage;
     public bool isPlayer;
 
-    
-
+    #region // checking if the script in on a player if so dynamicly change the damage depepending on the weapon
     public void OnEnable()
     {
         if (isPlayer)
@@ -25,18 +24,20 @@ public class Test_Weapon : MonoBehaviour
             Damage = 0;
         }
     }
-
+    #endregion
 
     public void OnTriggerEnter(Collider other)
     {
-       // if (other.CompareTag("Player") && other.isTrigger)
-      //  {
-            var pl = other.GetComponent<Test_Stat_UI>();
+        if (other.CompareTag("Player") && other.isTrigger)
+        {
+            var pl = other.GetComponent<Test_Stats>();
             if (pl)
             {
-                pl.SubHealth(Damage);
+                
+                pl.stat_UI.SubHealth(Damage);
+                //pl.SubHealth(Damage);
             }            
-       // }
+        }
 
         if (other.CompareTag("Enemy") && !this.CompareTag("Enemy") && other.isTrigger) 
         {

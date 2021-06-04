@@ -24,4 +24,9 @@ public class User_Interface_Dynamic : User_Interface
 
         }
     }
+
+    public void UIupdate()
+    {
+        CreateSlots();
+    }
 }

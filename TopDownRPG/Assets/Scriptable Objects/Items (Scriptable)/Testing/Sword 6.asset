@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f087065c7834f348a4c0145c9c86b80, type: 3}
+  m_Name: Sword 6
+  m_EditorClassIdentifier: 
+  type: 4
+  icon: {fileID: 2105162914696504809, guid: 7d13319afa3e66941a19f6ea5efb6ee7, type: 3}
+  itemName: Pirate Sword
+  description: "A longsword, also written long sword, is a one-handed melee slashing
+    weapon. It has a straight blade, and is typically around 3\xBD feet in length."
+  Stackable: 0
+  spawnPrefab: {fileID: 0}
+  models:
+  - {fileID: 330615184867009793, guid: 73d0684a035c8af4389eacc0e5d6b2f9, type: 3}
+  itemProperties: []
+  data:
+    Type: 0
+    itemX: 0
+    itemY: 0
+    itemZ: 0
+    Name: 
+    ID: 13
+    properties:
+    - property: 0
+      value: 0
+      min: 4
+      max: 8
+    Stackable: 0
+    prefab: {fileID: 0}
+    description: 

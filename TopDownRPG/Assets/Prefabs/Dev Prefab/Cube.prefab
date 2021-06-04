@@ -138,7 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458b2d95d84463947bf5d59fb39b68b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 20
+  manager: {fileID: 0}
+  Damage: 4
+  isPlayer: 0
 --- !u!65 &6716631370276513940
 BoxCollider:
   m_ObjectHideFlags: 0

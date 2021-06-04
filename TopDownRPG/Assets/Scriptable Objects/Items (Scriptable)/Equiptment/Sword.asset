@@ -17,7 +17,9 @@ MonoBehaviour:
   itemName: Sword
   description: Just your average sword
   Stackable: 0
-  prefab: {fileID: 1513990766360642841, guid: 3f26e03005949fe44a5e3ad25cf8ea77, type: 3}
+  spawnPrefab: {fileID: 0}
+  models:
+  - {fileID: 330615184867009793, guid: 73d0684a035c8af4389eacc0e5d6b2f9, type: 3}
   itemProperties: []
   data:
     Type: 0
@@ -29,8 +31,8 @@ MonoBehaviour:
     properties:
     - property: 0
       value: 0
-      min: 5
-      max: 15
+      min: 4
+      max: 8
     Stackable: 0
     prefab: {fileID: 0}
     description: 

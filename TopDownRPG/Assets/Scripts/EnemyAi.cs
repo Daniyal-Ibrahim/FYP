@@ -9,7 +9,6 @@ public class EnemyAi : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public Animator animator;
-    public FieldOfView FOV;
 
     public bool isDead;
     public bool isRanged;
@@ -37,7 +36,7 @@ public class EnemyAi : MonoBehaviour
     public float timer = 0f;
 
     //States
-    public float sightRange, attackRange, rangedAttack;
+    public float sightRange, attackRange, rangedAttack,agroRange;
     public bool playerInSightRange, playerInAttackRange, playerInRangedAttackRange;
 
     private void Awake()
@@ -45,7 +44,14 @@ public class EnemyAi : MonoBehaviour
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+
         //SearchWalkPoint();
+    }
+    public AdvancedAudioManager audioManager;
+    public void FootStep()
+    {
+        audioManager = GameObject.Find("Advanced Audio Manager").GetComponent<AdvancedAudioManager>();
+        audioManager.PlaySound("FootStep");
     }
 
     private void Update()
@@ -54,7 +60,7 @@ public class EnemyAi : MonoBehaviour
         AIPositionY = transform.position.y;
         AIPositionZ = transform.position.z;
 
-        if (!isDead)
+        if (!isDead && Physics.CheckSphere(transform.position, agroRange, whatIsPlayer))
         {
             //Check for sight and attack range
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
@@ -110,6 +116,25 @@ public class EnemyAi : MonoBehaviour
 
     }
 
+    private void Patroling(Vector3[] vectors)
+    {
+        for (int i = 0; i < vectors.Length;)
+        {
+            agent.SetDestination(vectors[i]);
+            animator.SetBool("Walking", true);
+            animator.SetBool("Attacking", false);
+            Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+            if (distanceToWalkPoint.magnitude < 1f)
+            {
+                animator.SetBool("Walking", false);
+                walkPointSet = false;
+                i++;
+                if (i == vectors.Length) { i = 0; }
+            }
+        }
+    }
+
     private void SearchWalkPoint()
     {
         waiting = false;
@@ -160,12 +185,9 @@ public class EnemyAi : MonoBehaviour
         {
             animator.SetBool("Walking", false);
             animator.SetBool("Attacking", true);          
-            
         }
         else
         {
-
-
             animator.SetBool("Attacking", false);
             AID = 0;
             timer = 0;
@@ -248,5 +270,7 @@ public class EnemyAi : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, agroRange);
     }
 }

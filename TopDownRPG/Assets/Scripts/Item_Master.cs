@@ -23,15 +23,14 @@ public enum Property
 {
     Attack,
     Defence,
-    Heath,
 }
 /*
 public enum Rarity
 {
-    Common,     // white
+    Common,     // White
     Uncommon,   // Green
     Rare,       // Blue
-    Epic,       // Pink
+    Epic,       // Purple
     Legendary,  // Golden
 } */
 
@@ -44,7 +43,8 @@ public abstract class Item_Master : ScriptableObject
     [TextArea(15, 15)]
     public string description;
     public bool Stackable;
-    public GameObject prefab;
+    public GameObject spawnPrefab;
+    public GameObject[] models;
     public ItemProperties[] itemProperties;
     public Item data = new Item();
     public Item CreateItem() { Item newItem = new Item(this); return newItem; }
@@ -72,8 +72,9 @@ public class Item
         Name = item.itemName;
         ID = item.data.ID;
         Stackable = item.Stackable;
-        prefab = item.prefab;
+        prefab = item.spawnPrefab;
         description = item.description;
+
 
         properties = new ItemProperties[item.data.properties.Length];
         for (int i = 0; i < properties.Length; i++)

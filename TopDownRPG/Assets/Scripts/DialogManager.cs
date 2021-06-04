@@ -25,12 +25,26 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI Name_text;
     public TextMeshProUGUI Dialog_text;
 
+    public Animator pannelInteract;
+
     public Animator animator;
     void Start()
     {
         diaogLine = new Queue<string>();
         diaogLine.Clear();
     }
+
+
+    public void ShowDialogeTrigger()
+    {
+        pannelInteract.SetBool("isOpen", true);
+    }
+
+    public void HideDialogeTrigger()
+    {
+        pannelInteract.SetBool("isOpen", false);
+    }
+
 
     public void StartDialog(Dialog dialog)
     {
@@ -75,8 +89,10 @@ public class DialogManager : MonoBehaviour
 
     public void EndDialog()
     {
+        diaogLine.Clear();
         animator.SetBool("isOpen", false);
         player.GetComponent<Player_Input>().isTalking = false;
+        player.GetComponent<Player_Input>().stillTalking = false;
         // Diable the Dialog Panel
     }
     // Update is called once per frame

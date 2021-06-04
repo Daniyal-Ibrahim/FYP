@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class Player_Input : MonoBehaviour 
 {
@@ -12,7 +13,13 @@ public class Player_Input : MonoBehaviour
     // Movement
     private Vector2 inputVector = new Vector2(0, 0);
     private Rigidbody rb;
+    public float Move_Speed;
     private float range = 100f;
+
+    Vector3 X, Z;
+    public float speed;
+    public float runingSpeed;
+    float currentSpeed;
     // Animations
     public Animator animator;
     public float input_Delay = 1f;
@@ -21,6 +28,7 @@ public class Player_Input : MonoBehaviour
     private bool Cast_End = false;
     public float nextinput = 0f;
     public bool isTalking;
+    public bool stillTalking;
     public bool canRotate = true;
     // UI
     //public GameObject Inventroy;
@@ -35,10 +43,24 @@ public class Player_Input : MonoBehaviour
     List<string> Trigger_list = new List<string>(new string[] { "Trigger 1", "Trigger 2", "Trigger 3" });
     // Item pickup
     public bool pickup = false;
+
+    // dialogue control
+    // option 1 : use mouse data to seee who to talk to 
+
+    // option 2 : using a trigger collider
+    public BoxCollider dialogCollider;
     public DialogTrigger dialog;
+    // zoom control
+    public CinemachineVirtualCamera virtualCamera;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        X = Camera.main.transform.forward;
+        X.y = 0;
+        X = Vector3.Normalize(X);
+        Z = Quaternion.Euler(new Vector3(0,90,0))* X;
+
     }
 
     public AdvancedAudioManager audioManager;
@@ -75,15 +97,38 @@ public class Player_Input : MonoBehaviour
     public void Movement(InputAction.CallbackContext context)
     {
         inputVector = context.ReadValue<Vector2>();
-        //Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
+
+        Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
+
+
+
+        /*
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {
+            currentSpeed = 0;
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+        {
+            currentSpeed = 0;
+        }
+        */
+
+
+
     }
     public void Sprint(InputAction.CallbackContext context)
     {
         if (context.performed == true)
+        {
             animator.SetBool("Sprint", true);
+            Move_Speed = 6;
+        }
 
         if (context.canceled == true)
+        {
             animator.SetBool("Sprint", false);
+            Move_Speed = 4;
+        }
     }
     IEnumerator ExampleCoroutine(InputAction.CallbackContext context)
     {
@@ -200,7 +245,7 @@ public class Player_Input : MonoBehaviour
     }
     public void OpenMenu(InputAction.CallbackContext context)
     {
-        if (pauseMenu.active == true)
+        if (pauseMenu.activeInHierarchy == true)
         {
             pauseMenu.SetActive(false);
         }
@@ -209,15 +254,59 @@ public class Player_Input : MonoBehaviour
     }
     public void Interact(InputAction.CallbackContext context)
     {
-        if (context.performed == true && isTalking)
+        if (context.performed)
+        {
+            dialogCollider.gameObject.SetActive(true);
+        }
+
+        if (context.performed == true && stillTalking)
+        {
+            dialog.TriggerNextLine();
+        }
+
+        else if (context.performed == true && isTalking && !stillTalking)
         {
             Debug.Log("Interact");
             dialog.talking = true;
             dialog.TriggerDialog();
-            canRotate = false;
+            stillTalking = true;
+            //canRotate = false;
+        }
+
+
+
+        if (context.canceled)
+        {
+            dialogCollider.gameObject.SetActive(false);
         }
     }
+    public void Zoom(InputAction.CallbackContext context)
+    {
+        float z = context.ReadValue<float>();
+        /*
+        if (z > 0 && virtualCamera.m_Lens.OrthographicSize > 1)
+        {
+            virtualCamera.m_Lens.OrthographicSize -= 1;
+            Debug.Log("Scroll UP");
+        }
+        else if (z < 0 && virtualCamera.m_Lens.OrthographicSize < 20)
+        {
+            virtualCamera.m_Lens.OrthographicSize += 1;
+            Debug.Log("Scroll DOWN");
+        }
+        */
 
+        if (z > 0 && virtualCamera.m_Lens.FieldOfView > 5)
+        {
+            virtualCamera.m_Lens.FieldOfView -= 5;
+            Debug.Log("Scroll UP");
+        }
+        else if (z < 0 && virtualCamera.m_Lens.FieldOfView < 60)
+        {
+            virtualCamera.m_Lens.FieldOfView += 5;
+            Debug.Log("Scroll DOWN");
+        }
+    }
     public void OnTriggerEnter(Collider other)
     {
         dialog = other.GetComponent<DialogTrigger>();
@@ -226,7 +315,6 @@ public class Player_Input : MonoBehaviour
             isTalking = true;
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         dialog = other.GetComponent<DialogTrigger>();
@@ -238,28 +326,30 @@ public class Player_Input : MonoBehaviour
             canRotate = true;
         }
     }
-
     private void Update()
     {
-        // Animation Based Movement
-        PlayerAnimation();
-    }
-    private void FixedUpdate()
-    {
         // physics based movement
-        //PlayerMovement();
+        PlayerMovement();
         // physics based rotation
-        
+        PlayerAnimation();
         if (canRotate)
         {
             PlayerRoation();
         }
-        
-        
+
+    }
+    private void FixedUpdate()
+    {
 
     }
     private void PlayerRoation()
     {
+        // Controller Rotation
+        
+
+        
+        /*
+        // mouse rotation
         Mouse mouse = Mouse.current;
         if (mouse == null)
         {
@@ -275,31 +365,61 @@ public class Player_Input : MonoBehaviour
             Quaternion Qdirection = (Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)));
             rb.MoveRotation(Qdirection);
         }
+        */
     }
-    /* physics based movement
+     //physics based movement
     private void PlayerMovement()
     {
-        //if (inputVector.y < 0)
-        //{
-        //    rb.velocity = transform.forward * inputVector.y * (Move_Speed / 2);
-        //}
-        //else if (inputVector.y > 0)
-        //{
-        //    rb.velocity = transform.forward * inputVector.y * Move_Speed;
-        //}
+        Vector3 direction = new Vector3(inputVector.y, 0, inputVector.x);
+        Vector3 ZAxis = Z * Move_Speed * Time.deltaTime * inputVector.x;
+        Vector3 YAxis = X * Move_Speed * Time.deltaTime * inputVector.y;
 
-        //else if (inputVector.x < 0)
-        //{
-        //    Debug.Log("strafe right");
-        //    rb.velocity = transform.right * inputVector.x * (Move_Speed / 2);
-        //}
-        //else if (inputVector.x > 0)
-        //{
-        //    Debug.Log("Strafe left");
-        //    rb.velocity = (transform.right) * inputVector.x * (Move_Speed / 2);
-        //}
+        Vector3 heading = Vector3.Normalize(ZAxis + YAxis);
+
+        transform.forward = heading;
+
+        transform.position += ZAxis;
+        transform.position += YAxis;
+        /*
+        if (inputVector.y > 0)
+        {
+            target.Translate(Vector3.forward);
+        }
+        if (inputVector.y < 0)
+        {
+            target.Translate(Vector3.back);
+        }
+        if (inputVector.x > 0)
+        {
+            target.Translate(Vector3.right);
+        }
+        if (inputVector.x < 0)
+        {
+            target.Translate(Vector3.left);
+        }
+        /*
+        if (inputVector.y < 0)
+        {
+            rb.velocity = transform.forward * inputVector.y * (Move_Speed / 2);
+        }
+        else if (inputVector.y > 0)
+        {
+            rb.velocity = transform.forward * inputVector.y * Move_Speed;
+        }
+
+        else if (inputVector.x < 0)
+        {
+            Debug.Log("strafe right");
+            rb.velocity = transform.right * inputVector.x * (Move_Speed / 2);
+        }
+        else if (inputVector.x > 0)
+        {
+            Debug.Log("Strafe left");
+            rb.velocity = (transform.right) * inputVector.x * (Move_Speed / 2);
+        }
+        */
     }
-    */
+    
     private void PlayerAnimation()
     {
         animator.SetFloat("Vertical", inputVector.y);

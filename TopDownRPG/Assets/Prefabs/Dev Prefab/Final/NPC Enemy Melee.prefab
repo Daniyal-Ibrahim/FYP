@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 4891773520354174010}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Enemy
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -882,7 +882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458b2d95d84463947bf5d59fb39b68b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
+  manager: {fileID: 0}
+  Damage: 2
+  isPlayer: 0
 --- !u!65 &4891773520354174010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1876,7 +1878,8 @@ GameObject:
   - component: {fileID: 1597778920348484393}
   - component: {fileID: 1597778920348484405}
   - component: {fileID: 1597778920348484404}
-  m_Layer: 0
+  - component: {fileID: 1850916189}
+  m_Layer: 12
   m_Name: NPC Enemy Melee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1944,7 +1947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9aaa681ca96e2a46984a477b3c409ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 15
   curHealth: 0
   animator: {fileID: 1597778920348484399}
   image: {fileID: 6072472639468749428}
@@ -2000,6 +2003,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   animator: {fileID: 0}
+  FOV: {fileID: 1850916189}
   isDead: 0
   isRanged: 0
   AIPositionX: 0
@@ -2073,6 +2077,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1850916189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597778920348484400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbff288af5364543836187284a3e8aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 63
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 16384
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  visibleTargets: []
+  meshResolution: 1
+  edgeResolveIterations: 4
+  edgeDstThreshold: 0.5
+  viewMeshFilter: {fileID: 0}
 --- !u!1 &1597778920380648323
 GameObject:
   m_ObjectHideFlags: 0
