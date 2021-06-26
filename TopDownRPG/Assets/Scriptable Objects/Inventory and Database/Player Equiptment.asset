@@ -156,39 +156,31 @@ MonoBehaviour:
       name: 
     - Allowed: 04000000
       item:
-        Type: 4
+        Type: 0
         itemX: 0
         itemY: 0
         itemZ: 0
-        Name: Long Sword
-        ID: 13
-        properties:
-        - property: 0
-          value: 7
-          min: 4
-          max: 8
-        Stackable: 0
-        prefab: {fileID: 0}
-        description: "A longsword, also written long sword, is a one-handed melee
-          slashing weapon. It has a straight blade, and is typically around 3\xBD
-          feet in length."
-      amount: 1
-      name: 
-    - Allowed: 05000000
-      item:
-        Type: 5
-        itemX: 0
-        itemY: 0
-        itemZ: 0
-        Name: Shield
-        ID: 14
+        Name: 
+        ID: -1
         properties: []
         Stackable: 0
         prefab: {fileID: 0}
-        description: A shield is made from wood or metal and is carried in one hand.
-          Wielding a shield increases your Armor Class by 2. You can benefit from
-          only one shield at a time.
-      amount: 1
+        description: 
+      amount: 0
+      name: 
+    - Allowed: 05000000
+      item:
+        Type: 0
+        itemX: 0
+        itemY: 0
+        itemZ: 0
+        Name: 
+        ID: -1
+        properties: []
+        Stackable: 0
+        prefab: {fileID: 0}
+        description: 
+      amount: 0
       name: 
   database: {fileID: 11400000, guid: fce6d7f311ee4554ea429a339a899e7a, type: 2}
   SpawnPoint: {fileID: 0}

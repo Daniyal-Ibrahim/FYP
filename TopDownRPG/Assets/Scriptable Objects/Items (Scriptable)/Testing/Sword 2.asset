@@ -28,7 +28,7 @@ MonoBehaviour:
     itemY: 0
     itemZ: 0
     Name: 
-    ID: 13
+    ID: -1
     properties:
     - property: 0
       value: 0

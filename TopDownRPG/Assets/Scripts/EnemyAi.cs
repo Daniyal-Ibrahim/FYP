@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
 {
+    /*
+     * Finish FSM-Based AI to unlock Behaviour Tree AI
+     */
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;

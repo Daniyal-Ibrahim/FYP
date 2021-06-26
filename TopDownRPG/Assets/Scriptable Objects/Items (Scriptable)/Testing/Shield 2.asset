@@ -27,7 +27,7 @@ MonoBehaviour:
     itemY: 0
     itemZ: 0
     Name: 
-    ID: 14
+    ID: -1
     properties: []
     Stackable: 0
     prefab: {fileID: 0}

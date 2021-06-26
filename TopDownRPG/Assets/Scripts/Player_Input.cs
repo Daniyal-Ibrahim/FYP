@@ -15,11 +15,19 @@ public class Player_Input : MonoBehaviour
     private Rigidbody rb;
     public float Move_Speed;
     private float range = 100f;
+    public Transform lookat;
 
     Vector3 X, Z;
     public float speed;
     public float runingSpeed;
     float currentSpeed;
+    public float curr_rotation;
+    private Vector3 targetVector;
+    private Quaternion rotation;
+
+    [SerializeField]
+    private Camera Camera;
+
     // Animations
     public Animator animator;
     public float input_Delay = 1f;
@@ -70,9 +78,8 @@ public class Player_Input : MonoBehaviour
         audioManager = GameObject.Find("Advanced Audio Manager").GetComponent<AdvancedAudioManager>();
         audioManager.PlaySound("FootStep");
     }
-
     //public void Inventory(InputAction.CallbackContext context)
-    //{
+    //{ // logic moved to inventory manager
     //    if (Inventroy.activeInHierarchy == false && Equiptment.activeInHierarchy == false)
     //        Active = false;
 
@@ -96,24 +103,25 @@ public class Player_Input : MonoBehaviour
     }
     public void Movement(InputAction.CallbackContext context)
     {
+        // player input split into X and Y axis
         inputVector = context.ReadValue<Vector2>();
 
-        Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
+        //Debug.Log("X: " + inputVector.x.ToString() + " Y: " + inputVector.y.ToString());
 
+        //Vector3 direction = new Vector3(inputVector.y, 0, inputVector.x);
+        Vector3 ZAxis = Z * Move_Speed * Time.deltaTime * inputVector.x;
+        Vector3 YAxis = X * Move_Speed * Time.deltaTime * inputVector.y;
 
+        // Vrotation also rotates just put this in the update rather then the Quaternion rotation
+        //Vector3 Vrotation = Vector3.Normalize(ZAxis + YAxis);
+        //transform.forward = Vrotation;
 
-        /*
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-        {
-            currentSpeed = 0;
-        }
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
-        {
-            currentSpeed = 0;
-        }
-        */
+        transform.position += ZAxis;
+        transform.position += YAxis;
 
-
+        // used to get values for rotation
+        targetVector = new Vector3(inputVector.x, 0, inputVector.y);
+        targetVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector;
 
     }
     public void Sprint(InputAction.CallbackContext context)
@@ -328,98 +336,18 @@ public class Player_Input : MonoBehaviour
     }
     private void Update()
     {
-        // physics based movement
-        PlayerMovement();
-        // physics based rotation
         PlayerAnimation();
-        if (canRotate)
+
+        // rotate the player as long as player is moving 
+        // move this into its own function for clearner code
+        if (inputVector.x > 0 || inputVector.x < 0 || inputVector.y > 0 || inputVector.y < 0)
         {
-            PlayerRoation();
+            rotation = Quaternion.LookRotation(targetVector);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 20);
         }
 
     }
-    private void FixedUpdate()
-    {
 
-    }
-    private void PlayerRoation()
-    {
-        // Controller Rotation
-        
-
-        
-        /*
-        // mouse rotation
-        Mouse mouse = Mouse.current;
-        if (mouse == null)
-        {
-            Debug.Log("Get a mouse");
-            return;
-        }
-        Ray ray = Camera.main.ScreenPointToRay(mouse.position.ReadValue());
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, range))
-        {
-            //Debug.Log("Ray casted");
-            Vector3 direction = hit.point - transform.position;
-            Quaternion Qdirection = (Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)));
-            rb.MoveRotation(Qdirection);
-        }
-        */
-    }
-     //physics based movement
-    private void PlayerMovement()
-    {
-        Vector3 direction = new Vector3(inputVector.y, 0, inputVector.x);
-        Vector3 ZAxis = Z * Move_Speed * Time.deltaTime * inputVector.x;
-        Vector3 YAxis = X * Move_Speed * Time.deltaTime * inputVector.y;
-
-        Vector3 heading = Vector3.Normalize(ZAxis + YAxis);
-
-        transform.forward = heading;
-
-        transform.position += ZAxis;
-        transform.position += YAxis;
-        /*
-        if (inputVector.y > 0)
-        {
-            target.Translate(Vector3.forward);
-        }
-        if (inputVector.y < 0)
-        {
-            target.Translate(Vector3.back);
-        }
-        if (inputVector.x > 0)
-        {
-            target.Translate(Vector3.right);
-        }
-        if (inputVector.x < 0)
-        {
-            target.Translate(Vector3.left);
-        }
-        /*
-        if (inputVector.y < 0)
-        {
-            rb.velocity = transform.forward * inputVector.y * (Move_Speed / 2);
-        }
-        else if (inputVector.y > 0)
-        {
-            rb.velocity = transform.forward * inputVector.y * Move_Speed;
-        }
-
-        else if (inputVector.x < 0)
-        {
-            Debug.Log("strafe right");
-            rb.velocity = transform.right * inputVector.x * (Move_Speed / 2);
-        }
-        else if (inputVector.x > 0)
-        {
-            Debug.Log("Strafe left");
-            rb.velocity = (transform.right) * inputVector.x * (Move_Speed / 2);
-        }
-        */
-    }
-    
     private void PlayerAnimation()
     {
         animator.SetFloat("Vertical", inputVector.y);

@@ -282,7 +282,7 @@ public class Inventroy_Manager : MonoBehaviour
                         itemSets[k].Chest.SetActive(false);
                     }
                     // X is the model associated with the set
-                    x = (j / 2) - y;
+                    x = y+1;
                     // set model to active
                     itemSets[x].Chest.SetActive(true);
                     // add fucntion to add stats here
@@ -344,7 +344,7 @@ public class Inventroy_Manager : MonoBehaviour
                         itemSets[k].R_Hand.SetActive(false);
                         itemSets[k].L_Hand.SetActive(false);
                     }
-                    x = (j / 2) - y;
+                    x = y + 1;
                     itemSets[x].R_ArmLower.SetActive(true);
                     itemSets[x].L_ArmLower.SetActive(true);
                     itemSets[x].R_ArmUpper.SetActive(true);
@@ -398,7 +398,7 @@ public class Inventroy_Manager : MonoBehaviour
         }
         if (equiptment.Container.Items[3] == slot2)
         {
-            y = 1;
+            y = 0;
             Debug.Log("Placing something in Legs");
             for (int j = 4; j < 1 + (itemSets.Capacity * 4); j += 4)
             {
@@ -410,7 +410,7 @@ public class Inventroy_Manager : MonoBehaviour
                         itemSets[k].R_Leg.SetActive(false);
                         itemSets[k].L_Leg.SetActive(false);
                     }
-                    x = (j / 2) - y;
+                    x = y + 1;
                     itemSets[x].Hips.SetActive(true);
                     itemSets[x].R_Leg.SetActive(true);
                     itemSets[x].L_Leg.SetActive(true);

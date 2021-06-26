@@ -44,7 +44,6 @@ public abstract class Item_Master : ScriptableObject
     public string description;
     public bool Stackable;
     public GameObject spawnPrefab;
-    public GameObject[] models;
     public ItemProperties[] itemProperties;
     public Item data = new Item();
     public Item CreateItem() { Item newItem = new Item(this); return newItem; }
@@ -74,8 +73,8 @@ public class Item
         Stackable = item.Stackable;
         prefab = item.spawnPrefab;
         description = item.description;
-
-
+        prefab.GetComponent<Item_PickUp>().pickUp = item;
+        // create a check or item hash to prevent same item from getting a diff value when u repick it 
         properties = new ItemProperties[item.data.properties.Length];
         for (int i = 0; i < properties.Length; i++)
         {

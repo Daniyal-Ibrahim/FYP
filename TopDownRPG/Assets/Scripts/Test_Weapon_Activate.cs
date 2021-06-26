@@ -22,4 +22,10 @@ public class Test_Weapon_Activate : MonoBehaviour
     {
         weapon.SetActive(false);
     }
+    /* NOTE
+     * This was suppose to be used to only activate the weapons damage call during 
+     * specific animation frames but always having it active seems more fun to play as 
+     * so final decision pending
+     * 
+     */
 }

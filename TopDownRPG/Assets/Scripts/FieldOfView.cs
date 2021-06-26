@@ -2,6 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
+#region // Note to Self for imporving AI
+/*
+ * By using this field of view script its possible to simulate sences for the AI
+ * such as Sight, Hearing etc by targeting differnt masks/layers
+ * It can also be used for auto targeting AI/Obj for multiple homing projectiles 
+ * also plan on using this to get a list of enemies in sight of the player 
+ * for the lock on mechanic 
+ */
+#endregion
 public class FieldOfView : MonoBehaviour
 {
 

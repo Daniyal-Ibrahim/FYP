@@ -266,8 +266,8 @@ public class InvetorySlot
 
         // if item stackable show menu
         
-        GameManager game = new GameManager();
-        game.SaveGame();
+        //GameManager game = new GameManager();
+        //game.SaveGame();
     }
 
     public bool Placeable(Item_Master item)
